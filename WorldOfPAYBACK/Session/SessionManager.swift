@@ -9,9 +9,11 @@ import Foundation
 
 class SessionManager {
     static let shared = SessionManager()
-    private static let userDefault = UserDefaults.standard
+    private let userDefault = UserDefaults.standard
     
-    static var isLoggedIn: Bool {
+    private init() {}
+    
+    var isLoggedIn: Bool {
         set {
             userDefault.set(newValue, forKey: AppConstants.keyIsLoggedIn)
         }
@@ -21,7 +23,7 @@ class SessionManager {
         }
     }
     
-    static var loginToken: LoginToken? {
+    var loginToken: LoginToken? {
         set {
             if let newValue = newValue, let encodedData = try? JSONEncoder().encode(newValue) {
                 userDefault.set(encodedData, forKey: AppConstants.keyLoginToken)
@@ -39,7 +41,7 @@ class SessionManager {
         }
     }
     
-    static var userAccount: UserAccount? {
+    var userAccount: UserAccount? {
         set {
             if let newValue = newValue, let encodedData = try? JSONEncoder().encode(newValue) {
                 userDefault.set(encodedData, forKey: AppConstants.keyUserAccount)
@@ -57,7 +59,7 @@ class SessionManager {
         }
     }
     
-    static var registeredUsers: RegisteredUsers? {
+    var registeredUsers: RegisteredUsers? {
         set {
             if let newValue = newValue, let encodedData = try? JSONEncoder().encode(newValue) {
                 userDefault.set(encodedData, forKey: AppConstants.keyRegisteredUsers)
@@ -75,7 +77,7 @@ class SessionManager {
         }
     }
     
-    static func logout() {
+    func logout() {
         isLoggedIn = false
     }
 }

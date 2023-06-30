@@ -12,24 +12,21 @@ public struct UnelevetedButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: ButtonStyleConfiguration) -> some View {
         configuration.label
-            .padding(.vertical, 20)
-            .font(.system(size: 15, weight: .bold, design: .default))
-            .textCase(.uppercase)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(configuration.isPressed ? Color.red : .white)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 15)
+            .font(.system(size: 15, weight: .regular, design: .default))
+            //.textCase(.uppercase)
+            .frame(maxWidth: .infinity)
+            .background(configuration.isPressed ? Color("blue2_dark") : Color("blue2"))
             .cornerRadius(30)
-            .foregroundColor(configuration.isPressed ? .white : Color.red )
-            .overlay(
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(Color.red , lineWidth: 2)
-            )
-            .scaleEffect(configuration.isPressed ? 0.99 : 1)
-            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+            .foregroundColor(configuration.isPressed ? .white : Color("gray2") )
+            .scaleEffect(configuration.isPressed ? 0.98 : 1)
+            .animation(.interactiveSpring(response: 1.2, dampingFraction: 0.4, blendDuration: 0.2), value: configuration.isPressed)
     }
 }
 
 public extension Button {
-    func brandStyle() -> some View {
+    func unelevetedButtonStyle() -> some View {
         return buttonStyle(UnelevetedButtonStyle())
     }
 }

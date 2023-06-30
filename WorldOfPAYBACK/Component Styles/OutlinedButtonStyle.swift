@@ -29,7 +29,7 @@ public struct OutlinedButtonStyle: ButtonStyle {
 }
 
 public extension Button {
-    func brandStyle() -> some View {
+    func outlinedButtonStyle() -> some View {
         return buttonStyle(OutlinedButtonStyle())
     }
 }

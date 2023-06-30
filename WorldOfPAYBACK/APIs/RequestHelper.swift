@@ -17,9 +17,9 @@ class RequestHelper {
     private static let authRepo = "auth"
     private static let transactionRepo = "transactions"
     
-    static let login = "\(baseUrl)/\(apiVersion)/\(authRepo)"
-    static let signUp = "\(baseUrl)/\(apiVersion)/\(authRepo)"
-    static let allProducts = "\(baseUrl)/\(apiVersion)/\(transactionRepo)"
+    static let login = "\(baseUrl)/\(apiVersion)/\(authRepo)/login"
+    static let signUp = "\(baseUrl)/\(apiVersion)/\(authRepo)/register"
+    static let allTransactions = "\(baseUrl)/\(apiVersion)/\(transactionRepo)"
     
     static func getCommonUrlRequest(url: URL) -> URLRequest {
         var request = URLRequest(url: url)
@@ -32,11 +32,11 @@ class RequestHelper {
         var request = URLRequest(url: url)
         //Setting common headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let loggedUser = UserLocalStorage.getUserCredentials().loggedUser
-        request.setValue(loggedUser?.ispToken ?? "", forHTTPHeaderField: "AuthorizedToken")
-        let userId = loggedUser?.userID ?? 0
-        request.setValue(String(userId), forHTTPHeaderField: "userId")
-        request.setValue("3", forHTTPHeaderField: "platformId")
+        let accessToken = SessionManager.shared.loginToken?.accessToken
+        request.setValue(accessToken, forHTTPHeaderField: "AuthorizedToken")
+        if let userId = SessionManager.shared.userAccount?.id {
+            request.setValue(String(userId), forHTTPHeaderField: "userId")
+        }
         
         return request
     }

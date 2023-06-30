@@ -23,17 +23,17 @@ struct LoginResponse: Codable {
 }
 
 struct LoginResponseData: Codable {
-    let Account: UserAccount?
-    let Token: LoginToken?
+    let account: UserAccount?
+    let token: LoginToken?
 }
 
 struct LoginToken: Codable {
-    let AccessToken: String?
-    let RefreshToken: String?
-    let AccessUUID: String?
-    let RefreshUUID: String?
-    let AtExpires: UInt64?
-    let RtExpires: UInt64?
+    let accessToken: String?
+    let refreshToken: String?
+    let accessUUID: String?
+    let refreshUUID: String?
+    let atExpires: UInt64?
+    let rtExpires: UInt64?
 }
 
 struct RegisteredUsers: Codable {

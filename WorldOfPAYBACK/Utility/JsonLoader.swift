@@ -8,7 +8,10 @@
 import Foundation
 
 class JsonLoader {
-    static func loadLocalJsonFile<T: Decodable>(filename: String, ext: String?) -> T {
+    static let shared = JsonLoader()
+    private init() {}
+    
+    func loadLocalJsonFile<T: Decodable>(filename: String, ext: String?) -> T {
         let data: Data
 
         guard let file = Bundle.main.url(forResource: filename, withExtension: ext)
@@ -24,6 +27,7 @@ class JsonLoader {
 
         do {
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
             return try decoder.decode(T.self, from: data)
         } catch {
             fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")

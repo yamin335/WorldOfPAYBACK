@@ -26,6 +26,8 @@ class AppState: ObservableObject {
         }
     }
     
+    @Published var isSplashShown: Bool
+    
     @Published var isLoading: Bool
     
     @Published var accessToken: String? {
@@ -45,6 +47,7 @@ class AppState: ObservableObject {
     
         
     init() {
+        self.isSplashShown = false
         self.isLoading = false
         self.accessToken = UserDefaults.standard.string(forKey: "access_token") ?? ""
         self.isShowingErrorMsg = false

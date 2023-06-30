@@ -31,6 +31,7 @@ struct SuccessToastView: View {
             .shadow(color: .gray, radius: 10)
             .transition(.slide)
         }
+        .background(.clear)
         .padding(.leading, 32)
         .padding(.trailing, 32)
         .padding(.bottom, 20)

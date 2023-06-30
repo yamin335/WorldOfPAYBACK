@@ -9,15 +9,15 @@ import Foundation
 import Combine
 
 class BaseViewModel: NSObject, ObservableObject, URLSessionTaskDelegate {
-    var showLoader = PassthroughSubject<Bool, Never>()
+    var isShowLoader = PassthroughSubject<Bool, Never>()
     
-    var errorToastPublisher = PassthroughSubject<(Bool, String), Never>()
-    var warningToastPublisher = PassthroughSubject<(Bool, String), Never>()
-    var successToastPublisher = PassthroughSubject<(Bool, String), Never>()
+    var errorMsgPublisher = PassthroughSubject<(Bool, String), Never>()
+    var successMsgPublisher = PassthroughSubject<(Bool, String), Never>()
     
     let config = URLSessionConfiguration.default
+    let session = SessionManager.shared
     
-    var session: URLSession {
+    var urlSession: URLSession {
         get {
             config.timeoutIntervalForResource = 10 // Value in seconds, default is 7 days!
             config.waitsForConnectivity = true
@@ -27,6 +27,22 @@ class BaseViewModel: NSObject, ObservableObject, URLSessionTaskDelegate {
     
     func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
         // waiting for connectivity, update UI, etc.
-        self.errorToastPublisher.send((true, "Please turn on your internet connection!"))
+        self.showErrorMsg(msg: "Please turn on your internet connection!")
+    }
+    
+    func showLoader() {
+        isShowLoader.send(true)
+    }
+    
+    func hideLoader() {
+        isShowLoader.send(false)
+    }
+    
+    func showErrorMsg(msg: String) {
+        errorMsgPublisher.send((true, msg))
+    }
+    
+    func showSuccessMsg(msg: String) {
+        successMsgPublisher.send((true, msg))
     }
 }
