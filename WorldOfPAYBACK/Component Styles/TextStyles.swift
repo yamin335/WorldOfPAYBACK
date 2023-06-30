@@ -10,18 +10,34 @@ import SwiftUI
 struct TitleStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 24, weight: .bold))
-            .lineSpacing(5)
-            .foregroundColor(Color.blue )
+            .font(.system(size: 20, weight: .bold))
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
     }
 }
 
-struct BodyStyle: ViewModifier {
+struct AmountStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("Hiragino Mincho ProN", size: 15))
-            .lineSpacing(4)
-            .foregroundColor(.secondary)
+            .font(.system(size: 20, weight: .bold))
+            .foregroundColor(Color("blue3"))
+    }
+}
+
+struct FootNoteStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 12, weight: .light))
+            .foregroundColor(Color("textColor4"))
+            .multilineTextAlignment(.leading)
+            .lineLimit(nil)
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct DateStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 10, weight: .light))
     }
 }
 

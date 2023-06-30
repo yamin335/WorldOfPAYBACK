@@ -23,3 +23,17 @@ extension AnyTransition {
         )
     }
 }
+
+extension Date? {
+    func toFormattedDateString() -> String? {
+        return self?.formatted(.dateTime.year().day().month(.wide))
+    }
+}
+
+extension Transaction {
+    func parseAmount() -> String {
+        let amount = self.transactionDetail?.value?.amount ?? 0
+        let currency = self.transactionDetail?.value?.currency ?? AppConstants.defaultCurrency
+        return amount.formatted(.currency(code: currency))
+    }
+}

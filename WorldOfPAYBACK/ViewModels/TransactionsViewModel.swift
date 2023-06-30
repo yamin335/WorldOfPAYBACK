@@ -16,13 +16,26 @@ class TransactionsViewModel: BaseViewModel {
     @Published var currency: String = AppConstants.defaultCurrency
     
     func loadTransactions(category: TransactionCategory) {
-        let response: TransactionsResponse = JsonLoader.shared.loadLocalJsonFile(filename: "PBTransactions", ext: "json")
-        if let list = response.items {
-            transactions = list.sorted {
-                $0.transactionDetail?.bookingDate ?? Date() > $1.transactionDetail?.bookingDate ?? Date()
-            }
+        showLoader()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.mockWaitingTime) {
             
-            filterTransactions(by: category)
+            let randNum = Int.random(in: 1...1000)
+            
+            if randNum % 2 == 0 {
+                let response: TransactionsResponse = JsonLoader.shared.loadLocalJsonFile(filename: "PBTransactions", ext: "json")
+                if let list = response.items {
+                    self.transactions = list.sorted {
+                        $0.transactionDetail?.bookingDate ?? Date() > $1.transactionDetail?.bookingDate ?? Date()
+                    }
+                    
+                    self.filterTransactions(by: category)
+                }
+                self.showSuccessMsg(msg: "Success!")
+            } else {
+                self.showErrorMsg(msg: "Failed! Some error occured.")
+            }
+            self.hideLoader()
         }
     }
     

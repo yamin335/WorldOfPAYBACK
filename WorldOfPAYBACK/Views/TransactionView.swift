@@ -45,25 +45,22 @@ struct TransactionView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 20)
-                .padding(.bottom, 15)
+                .padding(.top, 0)
+                .padding(.bottom, 0)
                 
-                
-                Spacer()
-                
-                HStack(spacing: 10) {
-                    Text("Total transaction amount:")
-                        .foregroundColor(.white)
-                    Text("\($viewModel.sumOfTransaction.wrappedValue.formatted(.currency(code: $viewModel.currency.wrappedValue)))")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
+                ScrollView {
+                    VStack(spacing:0) {
+                        ForEach(Array($viewModel.filteredTransactions.wrappedValue.enumerated()), id: \.offset) { index, data in
+                            NavigationLink(destination: TransactionDetailsView(data: data)) {
+                                TransactionListItem(data: data)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 100)
                 }
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color("blue2")).cornerRadius(10).shadow(color: Color("shadowColor"), radius: 6, x: 1, y: 2))
-        
-                .padding()
-                
+                .overlay {
+                    $viewModel.filteredTransactions.count > 1 ? TransactionSumView(viewModel: viewModel) : nil
+                }
             }.navigationTitle("All Transaction")
         }.onAppear {
             viewModel.loadTransactions(category: category)

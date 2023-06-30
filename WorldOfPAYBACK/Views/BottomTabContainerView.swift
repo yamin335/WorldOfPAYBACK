@@ -11,7 +11,7 @@ struct BottomTabContainerView: View {
     @State private var selection = 0
     
     var body: some View {
-        TabView(selection: $selection.animation(.easeOut)){
+        TabView(selection: $selection.animation(.easeOut(duration: 0.5))){
             TransactionView().tabItem {
                 Label("Transactions", systemImage: "eurosign.circle.fill")
             }
@@ -21,7 +21,20 @@ struct BottomTabContainerView: View {
                 Label("Settings", systemImage: "gearshape.fill")
             }
             .tag(1)
-        }.accentColor(Color("blue2")).edgesIgnoringSafeArea(.top)
+        }
+        .accentColor(Color("blue2"))
+        .edgesIgnoringSafeArea(.top)
+        .background(.white)
+        .onAppear {
+            // correct the transparency bug for Tab bars
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            // correct the transparency bug for Navigation bars
+//            let navigationBarAppearance = UINavigationBarAppearance()
+//            navigationBarAppearance.configureWithOpaqueBackground()
+//            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
     }
 }
 

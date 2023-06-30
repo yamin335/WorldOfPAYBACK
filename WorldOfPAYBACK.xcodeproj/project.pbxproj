@@ -105,6 +105,15 @@
 		6E9100E42A4F542B003D790B /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100E32A4F542B003D790B /* TransactionCategory.swift */; };
 		6E9100E52A4F542B003D790B /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100E32A4F542B003D790B /* TransactionCategory.swift */; };
 		6E9100E62A4F542B003D790B /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100E32A4F542B003D790B /* TransactionCategory.swift */; };
+		6E9100E82A4F6EBD003D790B /* TransactionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100E72A4F6EBD003D790B /* TransactionListItem.swift */; };
+		6E9100E92A4F6EBD003D790B /* TransactionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100E72A4F6EBD003D790B /* TransactionListItem.swift */; };
+		6E9100EA2A4F6EBD003D790B /* TransactionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100E72A4F6EBD003D790B /* TransactionListItem.swift */; };
+		6E9100EC2A4F7EF0003D790B /* TransactionSumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EB2A4F7EF0003D790B /* TransactionSumView.swift */; };
+		6E9100ED2A4F7EF0003D790B /* TransactionSumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EB2A4F7EF0003D790B /* TransactionSumView.swift */; };
+		6E9100EE2A4F7EF0003D790B /* TransactionSumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EB2A4F7EF0003D790B /* TransactionSumView.swift */; };
+		6E9100F02A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
+		6E9100F12A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
+		6E9100F22A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +175,9 @@
 		6E9100DA2A4F2021003D790B /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		6E9100DF2A4F29FE003D790B /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		6E9100E32A4F542B003D790B /* TransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategory.swift; sourceTree = "<group>"; };
+		6E9100E72A4F6EBD003D790B /* TransactionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListItem.swift; sourceTree = "<group>"; };
+		6E9100EB2A4F7EF0003D790B /* TransactionSumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSumView.swift; sourceTree = "<group>"; };
+		6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +367,9 @@
 				6E9100D22A4ED969003D790B /* SignUpView.swift */,
 				6E9100D62A4F2011003D790B /* SettingsView.swift */,
 				6E9100DA2A4F2021003D790B /* TransactionView.swift */,
+				6E9100E72A4F6EBD003D790B /* TransactionListItem.swift */,
+				6E9100EB2A4F7EF0003D790B /* TransactionSumView.swift */,
+				6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -501,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9100E82A4F6EBD003D790B /* TransactionListItem.swift in Sources */,
 				6E76D7662A4CF47F009052AF /* UnelevetedButtonStyle.swift in Sources */,
 				6E76D76A2A4CF4C1009052AF /* OutlinedButtonStyle.swift in Sources */,
 				6E1E2F7C2A4E22A400E0C496 /* LoginViewModel.swift in Sources */,
@@ -527,6 +543,8 @@
 				6E76D79E2A4D0573009052AF /* LoginModels.swift in Sources */,
 				6E9100E42A4F542B003D790B /* TransactionCategory.swift in Sources */,
 				6E1E2F842A4E271700E0C496 /* Extensions.swift in Sources */,
+				6E9100EC2A4F7EF0003D790B /* TransactionSumView.swift in Sources */,
+				6E9100F02A4F826D003D790B /* TransactionDetailsView.swift in Sources */,
 				6E1E2F6F2A4DE7AE00E0C496 /* MainContentView.swift in Sources */,
 				6E9100E02A4F29FE003D790B /* TransactionsViewModel.swift in Sources */,
 				6E9100D32A4ED969003D790B /* SignUpView.swift in Sources */,
@@ -549,6 +567,7 @@
 				6E9100E12A4F29FE003D790B /* TransactionsViewModel.swift in Sources */,
 				6E76D77D2A4CFD52009052AF /* JsonLoader.swift in Sources */,
 				6E76D7962A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
+				6E9100ED2A4F7EF0003D790B /* TransactionSumView.swift in Sources */,
 				6E76D76B2A4CF4C1009052AF /* OutlinedButtonStyle.swift in Sources */,
 				6E9100D42A4ED969003D790B /* SignUpView.swift in Sources */,
 				6E1E2F702A4DE7AE00E0C496 /* MainContentView.swift in Sources */,
@@ -558,7 +577,9 @@
 				6E76D7672A4CF47F009052AF /* UnelevetedButtonStyle.swift in Sources */,
 				6E76D78E2A4D004D009052AF /* ApiService.swift in Sources */,
 				6E76D7352A4C8726009052AF /* WorldOfPAYBACKTests.swift in Sources */,
+				6E9100E92A4F6EBD003D790B /* TransactionListItem.swift in Sources */,
 				6E76D7622A4CD33F009052AF /* NetworkObserver.swift in Sources */,
+				6E9100F12A4F826D003D790B /* TransactionDetailsView.swift in Sources */,
 				6E76D79F2A4D0573009052AF /* LoginModels.swift in Sources */,
 				6E1E2F752A4DEAC300E0C496 /* SplashView.swift in Sources */,
 				6E76D7782A4CF829009052AF /* SessionManager.swift in Sources */,
@@ -581,13 +602,16 @@
 				6E9100E22A4F29FE003D790B /* TransactionsViewModel.swift in Sources */,
 				6E76D76C2A4CF4C1009052AF /* OutlinedButtonStyle.swift in Sources */,
 				6E1E2F7E2A4E22A400E0C496 /* LoginViewModel.swift in Sources */,
+				6E9100F22A4F826D003D790B /* TransactionDetailsView.swift in Sources */,
 				6E1E2F8F2A4E54F400E0C496 /* RoundedTextField.swift in Sources */,
+				6E9100EA2A4F6EBD003D790B /* TransactionListItem.swift in Sources */,
 				6E76D7792A4CF829009052AF /* SessionManager.swift in Sources */,
 				6E76D7872A4CFE5F009052AF /* ErrorToastView.swift in Sources */,
 				6E76D7932A4D007B009052AF /* AppConstants.swift in Sources */,
 				6E76D7412A4C8726009052AF /* WorldOfPAYBACKUITestsLaunchTests.swift in Sources */,
 				6E76D77E2A4CFD52009052AF /* JsonLoader.swift in Sources */,
 				6E1E2F932A4E634F00E0C496 /* RoundedTextFieldStyle.swift in Sources */,
+				6E9100EE2A4F7EF0003D790B /* TransactionSumView.swift in Sources */,
 				6E1E2F822A4E266400E0C496 /* BottomTabContainerView.swift in Sources */,
 				6E76D79C2A4D0171009052AF /* TransactionsResponse.swift in Sources */,
 				6E9100DD2A4F2021003D790B /* TransactionView.swift in Sources */,
