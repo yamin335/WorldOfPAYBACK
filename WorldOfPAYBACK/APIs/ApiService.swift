@@ -13,40 +13,6 @@ class ApiService {
         case InvalidServerResponse
     }
     
-    static func login(email: String, password: String, viewModel: BaseViewModel) -> AnyPublisher<LoginResponse, Error>? {
-        let jsonObject = ["email": email, "password": password]
-        
-        if !JSONSerialization.isValidJSONObject(jsonObject) {
-            print("Problem in parameter creation...")
-            return nil
-        }
-        
-        let tempJson = try? JSONSerialization.data(withJSONObject: jsonObject, options: [])
-        
-        guard let jsonData = tempJson else {
-            print("Problem in parameter creation...")
-            return nil
-        }
-        
-        guard let urlComponents = URLComponents(string: RequestHelper.login) else {
-            print("Problem in UrlComponent creation...")
-            return nil
-        }
-        
-        guard let url = urlComponents.url else {
-            return nil
-        }
-        
-        //Request type
-        var request = RequestHelper.getCommonUrlRequest(url: url)
-        request.httpMethod = "POST"
-        
-        //Setting body for POST request
-        request.httpBody = jsonData
-        
-        return getDataTask(request: request, viewModel: viewModel)
-    }
-    
     static func getTransactionList(partnerId: Int, viewModel: BaseViewModel) -> AnyPublisher<TransactionsResponse, Error>? {
         let jsonObject = ["partnerId": partnerId]
         
