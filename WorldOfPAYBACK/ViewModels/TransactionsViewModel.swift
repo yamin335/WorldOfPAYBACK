@@ -14,8 +14,9 @@ class TransactionsViewModel: BaseViewModel {
     @Published var filteredTransactions: [Transaction] = []
     @Published var sumOfTransaction: Int = 0
     @Published var currency: String = AppConstants.defaultCurrency
+    @Published var category: TransactionCategory = .all
     
-    func loadTransactions(category: TransactionCategory) {
+    func loadTransactions() async {
         showLoader()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.mockWaitingTime) {
@@ -29,17 +30,19 @@ class TransactionsViewModel: BaseViewModel {
                         $0.transactionDetail?.bookingDate ?? Date() > $1.transactionDetail?.bookingDate ?? Date()
                     }
                     
-                    self.filterTransactions(by: category)
+                    self.filterTransactions()
                 }
                 self.showSuccessMsg(msg: "Success!")
             } else {
                 self.showErrorMsg(msg: "Failed! Some error occured.")
+                self.transactions = []
+                self.filteredTransactions = []
             }
             self.hideLoader()
         }
     }
     
-    func filterTransactions(by category: TransactionCategory) {
+    func filterTransactions() {
         filteredTransactions = category == .all ? transactions : transactions.filter { $0.category == category.rawValue }
         
         sumOfTransaction = filteredTransactions.reduce(0) { x, y in
