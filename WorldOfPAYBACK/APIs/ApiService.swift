@@ -47,14 +47,18 @@ class ApiService {
         return getDataTask(request: request, viewModel: viewModel)
     }
     
-    static func getTransactionList(quotationStoreBody: TransactionsResponse, viewModel: BaseViewModel) -> AnyPublisher<TransactionsResponse, Error>? {
+    static func getTransactionList(partnerId: Int, viewModel: BaseViewModel) -> AnyPublisher<TransactionsResponse, Error>? {
+        let jsonObject = ["partnerId": partnerId]
         
-        guard let data = try? JSONEncoder().encode(quotationStoreBody) else {
-            print("Problem in JSONData creation...")
+        if !JSONSerialization.isValidJSONObject(jsonObject) {
+            print("Problem in parameter creation...")
             return nil
         }
         
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+        let tempJson = try? JSONSerialization.data(withJSONObject: jsonObject, options: [])
+        
+        guard let jsonData = tempJson else {
+            print("Problem in parameter creation...")
             return nil
         }
         
@@ -72,7 +76,7 @@ class ApiService {
         request.httpMethod = "GET"
         
         //Setting body for POST request
-        request.httpBody = data
+        request.httpBody = jsonData
         
         return getDataTask(request: request, viewModel: viewModel)
     }

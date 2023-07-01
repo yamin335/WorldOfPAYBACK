@@ -16,6 +16,14 @@ class TransactionsViewModel: BaseViewModel {
     @Published var currency: String = AppConstants.defaultCurrency
     @Published var category: TransactionCategory = .all
     
+    /// This `AnyCancellable` will be used to get data from real `API` call
+    private var dataSubscriber: AnyCancellable? = nil
+    var transactionDataPublisher = PassthroughSubject<TransactionsResponse, Never>()
+    
+    deinit {
+        dataSubscriber?.cancel()
+    }
+    
     func loadTransactions() async {
         showLoader()
         
@@ -58,11 +66,34 @@ class TransactionsViewModel: BaseViewModel {
         }
     }
 
-    func invervalValuePublisher(array: [String]) -> AnyPublisher<String, Never> {
-        let publishers = array
-            .map { Just($0).delay(for: .seconds(1), scheduler: DispatchQueue.main).eraseToAnyPublisher() }
-        return publishers[1...].reduce(publishers[0]) {
-            Publishers.Concatenate(prefix: $0, suffix: $1).eraseToAnyPublisher()
-        }
+    /// This function will be used to initiate a real network call to the `Transaction API` in order to get data
+    func requestTransactionData() {
+        self.dataSubscriber = ApiService.getTransactionList(partnerId: 0, viewModel: self)?
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                    self.showErrorMsg(msg: error.localizedDescription)
+                }
+            }, receiveValue: { transactionDataResponse in
+                if transactionDataResponse.code == RequestHelper.successCode {
+                    self.showSuccessMsg(msg: "Success!")
+                    // Send data to all observers that you set for this data publisher
+                    self.transactionDataPublisher.send(transactionDataResponse)
+                    // Update list
+                    DispatchQueue.main.async {
+                        if let list = transactionDataResponse.items {
+                            self.transactions = list.sorted {
+                                $0.transactionDetail?.bookingDate ?? Date() > $1.transactionDetail?.bookingDate ?? Date()
+                            }
+                            
+                            self.filterTransactions()
+                        }
+                    }
+                } else {
+                    self.showErrorMsg(msg: "Failed! Some error occured.")
+                }
+            })
     }
 }

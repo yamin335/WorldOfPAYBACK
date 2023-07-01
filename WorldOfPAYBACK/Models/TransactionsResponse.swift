@@ -10,6 +10,7 @@ import Foundation
 // MARK: - TransactionsResponse
 struct TransactionsResponse: Codable {
     let items: [Transaction]?
+    let code: Int?
 }
 
 // MARK: - Transaction

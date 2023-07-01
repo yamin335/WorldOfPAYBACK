@@ -11,7 +11,7 @@ import Combine
 class LoginViewModel: BaseViewModel {
     @Published var email: String = ""
     @Published var password: String = ""
-    
+
     var loginStatusPublisher = PassthroughSubject<Bool, Never>()
     
     var validatedEmail: AnyPublisher<Bool, Never> {

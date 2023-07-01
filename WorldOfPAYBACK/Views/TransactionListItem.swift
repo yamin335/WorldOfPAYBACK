@@ -25,7 +25,7 @@ struct TransactionListItem: View {
                     .textStyle(AmountStyle())
             }.padding(.top, 5)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 12)
     }
 }
 

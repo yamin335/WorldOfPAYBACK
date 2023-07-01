@@ -21,6 +21,9 @@ class RequestHelper {
     static let signUp = "\(baseUrl)/\(apiVersion)/\(authRepo)/register"
     static let allTransactions = "\(baseUrl)/\(apiVersion)/\(transactionRepo)"
     
+    static let successCode = 200
+    static let errorCode = 401
+    
     static func getCommonUrlRequest(url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         //Setting common headers
