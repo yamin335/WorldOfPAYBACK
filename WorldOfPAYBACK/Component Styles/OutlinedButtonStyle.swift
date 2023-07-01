@@ -12,19 +12,19 @@ public struct OutlinedButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: ButtonStyleConfiguration) -> some View {
         configuration.label
-            .padding(.vertical, 20)
-            .font(.system(size: 15, weight: .bold, design: .default))
-            .textCase(.uppercase)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(configuration.isPressed ? Color.red : .white)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 15)
+            .font(.system(size: 15, weight: .regular, design: .default))
+            .frame(maxWidth: .infinity)
+            .background(configuration.isPressed ? Color("blue2_ripple") : .white)
             .cornerRadius(30)
-            .foregroundColor(configuration.isPressed ? .white : Color.red )
+            .foregroundColor(configuration.isPressed ? Color("blue2_dark") : Color("blue2") )
             .overlay(
                 RoundedRectangle(cornerRadius: 30)
-                    .stroke(Color.red , lineWidth: 2)
+                    .stroke(configuration.isPressed ? Color("blue2_dark") : Color("blue2"), lineWidth: configuration.isPressed ? 2 : 1)
             )
-            .scaleEffect(configuration.isPressed ? 0.99 : 1)
-            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+            .scaleEffect(configuration.isPressed ? 0.98 : 1)
+            .animation(.linear(duration: 0.2), value: configuration.isPressed)
     }
 }
 

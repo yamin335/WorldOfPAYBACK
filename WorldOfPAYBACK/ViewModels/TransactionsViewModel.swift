@@ -40,9 +40,9 @@ class TransactionsViewModel: BaseViewModel {
                     
                     self.filterTransactions()
                 }
-                self.showSuccessMsg(msg: "Success!")
+                self.showSuccessMsg(msg: "Transactions successfully loaded!")
             } else {
-                self.showErrorMsg(msg: "Failed! Some error occured.")
+                self.showErrorMsg(msg: "Transactions loading failed due to error!")
                 self.transactions = []
                 self.filteredTransactions = []
             }
@@ -78,7 +78,7 @@ class TransactionsViewModel: BaseViewModel {
                 }
             }, receiveValue: { transactionDataResponse in
                 if transactionDataResponse.code == RequestHelper.successCode {
-                    self.showSuccessMsg(msg: "Success!")
+                    self.showSuccessMsg(msg: "Transactions successfully loaded")
                     // Send data to all observers that you set for this data publisher
                     self.transactionDataPublisher.send(transactionDataResponse)
                     // Update list
@@ -92,7 +92,7 @@ class TransactionsViewModel: BaseViewModel {
                         }
                     }
                 } else {
-                    self.showErrorMsg(msg: "Failed! Some error occured.")
+                    self.showErrorMsg(msg: "Transactions loading failed due to error!")
                 }
             })
     }

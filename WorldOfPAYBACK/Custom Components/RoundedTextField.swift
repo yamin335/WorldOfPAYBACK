@@ -13,6 +13,7 @@ public struct RoundedTextField: View {
 
     /// Whether the user is focused on this `TextField`.
     @State private var isEditing: Bool = false
+    let cornerRadius: CGFloat = 8.0
     
     public init(_ placeholder: LocalizedStringKey, text: Binding<String>) {
       self.placeholder = placeholder
@@ -39,11 +40,15 @@ public struct RoundedTextField: View {
         .padding(.horizontal, 15)
         .padding(.vertical, 8)
         // TextField border.
-        .background(border)
+        .background(.white)
+        .cornerRadius(cornerRadius)
+        .overlay {
+            border
+        }
     }
     
     var border: some View {
-        RoundedRectangle(cornerRadius: 8)
+        RoundedRectangle(cornerRadius: cornerRadius)
             .strokeBorder(
                 LinearGradient(
                     gradient: .init(
@@ -56,7 +61,7 @@ public struct RoundedTextField: View {
                     endPoint: .bottomTrailing
                 ),
                 lineWidth: isEditing ? 2 : 1
-            )
+            ).shadow(color: Color("shadowColor"), radius: isEditing ? 5 : 0, x: isEditing ? 1 : 0, y: isEditing ? 2 : 0)
     }
 }
 

@@ -57,9 +57,11 @@ struct MainContentView: View {
         .onReceive(self.networkObserver.networkStatusPublisher.receive(on: RunLoop.main)) { status in
             self.appState.isConnected = status == .connected
             if status == .connected {
-                self.appState.successMessage = AppConstants.connectedMsg
-                withAnimation(.easeIn(duration: AppConstants.toastTime)) {
-                    self.appState.isShowingSuccessMsg = true
+                if AppConstants.appLaunched {
+                    self.appState.successMessage = AppConstants.connectedMsg
+                    withAnimation(.easeIn(duration: AppConstants.toastTime)) {
+                        self.appState.isShowingSuccessMsg = true
+                    }
                 }
             } else {
                 self.appState.errorMessage = AppConstants.disConnectedMsg
@@ -67,6 +69,7 @@ struct MainContentView: View {
                     self.appState.isShowingErrorMsg = true
                 }
             }
+            AppConstants.appLaunched = true
         }
         .onAppear {
             let users = session.registeredUsers?.users

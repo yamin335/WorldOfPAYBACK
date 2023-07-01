@@ -30,4 +30,6 @@ struct AppConstants {
     static let networkErrorMsg = "Please connect to a network and try again!"
     static let connectedMsg = "Connected to network!"
     static let disConnectedMsg = "Disconnected from network!"
+    
+    static var appLaunched = false
 }
