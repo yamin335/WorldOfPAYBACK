@@ -30,6 +30,8 @@ class AppState: ObservableObject {
     
     @Published var isLoading: Bool
     
+    @Published var isConnected: Bool
+    
     @Published var accessToken: String? {
         didSet {
             if accessToken == nil {
@@ -55,5 +57,6 @@ class AppState: ObservableObject {
         self.errorMessage = ""
         self.successMessage = ""
         self.isLoggedIn = UserDefaults.standard.bool(forKey: AppConstants.keyIsLoggedIn)
+        self.isConnected = false
     }
 }

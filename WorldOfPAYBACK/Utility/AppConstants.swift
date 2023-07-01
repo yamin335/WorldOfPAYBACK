@@ -26,4 +26,8 @@ struct AppConstants {
     static let defaultPassword = "12345"
     
     static let defaultCurrency = "usd"
+    
+    static let networkErrorMsg = "Please connect to a network and try again!"
+    static let connectedMsg = "Connected to network!"
+    static let disConnectedMsg = "Disconnected from network!"
 }

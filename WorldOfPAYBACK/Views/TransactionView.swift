@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TransactionView: View {
+    @EnvironmentObject var appState: AppState
     @StateObject var viewModel = TransactionsViewModel()
     @State var selectedCategoryLabel: String = TransactionCategory.all.title
     
@@ -66,7 +67,11 @@ struct TransactionView: View {
                     }
                     .listStyle(.plain)
                     .refreshable {
-                        await viewModel.loadTransactions()
+                        if self.appState.isConnected {
+                            await viewModel.loadTransactions()
+                        } else {
+                            self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
+                        }
                     }
                     .overlay {
                         viewModel.filteredTransactions.count > 0 ? TransactionSumView(viewModel: viewModel) : nil
@@ -76,8 +81,12 @@ struct TransactionView: View {
                     }
                 }.navigationTitle("All Transaction")
             }.onAppear {
-                Task(priority: .high) {
-                    await viewModel.loadTransactions()
+                if self.appState.isConnected {
+                    Task(priority: .high) {
+                        await viewModel.loadTransactions()
+                    }
+                } else {
+                    self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
                 }
             }
         }

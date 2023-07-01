@@ -10,6 +10,7 @@ import SwiftUI
 struct MainContentView: View {
     @EnvironmentObject var appState: AppState
     private let session = SessionManager.shared
+    @StateObject var networkObserver = NetworkObserver()
     
     var body: some View {
         ZStack {
@@ -52,11 +53,30 @@ struct MainContentView: View {
             if self.appState.isLoading {
                 SpinLoaderView().transition(.fadeInFadeOut).zIndex(10)
             }
-        }.onAppear {
+        }
+        .onReceive(self.networkObserver.networkStatusPublisher.receive(on: RunLoop.main)) { status in
+            self.appState.isConnected = status == .connected
+            if status == .connected {
+                self.appState.successMessage = AppConstants.connectedMsg
+                withAnimation(.easeIn(duration: AppConstants.toastTime)) {
+                    self.appState.isShowingSuccessMsg = true
+                }
+            } else {
+                self.appState.errorMessage = AppConstants.disConnectedMsg
+                withAnimation(.easeIn(duration: AppConstants.toastTime)) {
+                    self.appState.isShowingErrorMsg = true
+                }
+            }
+        }
+        .onAppear {
             let users = session.registeredUsers?.users
             if users == nil {
                 session.registeredUsers = RegisteredUsers(users: [UserAccount(id: 0, email: AppConstants.defaultEmail, password: AppConstants.defaultPassword, retypepassword: AppConstants.defaultPassword)])
             }
+            networkObserver.startObserving()
+        }
+        .onDisappear {
+            networkObserver.stopObserving()
         }
     }
 }

@@ -60,7 +60,11 @@ struct LoginView: View {
                     }
                     
                     Button("Sign In") {
-                        self.viewModel.login()
+                        if appState.isConnected {
+                            self.viewModel.login()
+                        } else {
+                            self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
+                        }
                     }
                     .unelevetedButtonStyle()
                     .padding(.horizontal, 20)

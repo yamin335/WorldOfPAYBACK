@@ -10,7 +10,7 @@ import SwiftUI
 struct ListEmptyView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Could not load data")
+            Text("Unable to load data!")
                 .font(.system(size: 18, weight: .light))
                 .foregroundColor(Color("shadowColor"))
             

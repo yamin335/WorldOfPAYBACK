@@ -84,7 +84,11 @@ struct SignUpView: View {
                 
                 Group {
                     Button("Sign Up") {
-                        self.viewModel.signUp()
+                        if appState.isConnected {
+                            self.viewModel.signUp()
+                        } else {
+                            self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
+                        }
                     }
                     .unelevetedButtonStyle()
                     .padding(.horizontal, 20)
