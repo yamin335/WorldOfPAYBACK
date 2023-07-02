@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+/**
+ `NetworkRequest` is a concrete implementation of `NetworkRequestProtocol` that canbe used
+ to initiate a network request with `URLSession` network library.
+ */
 public final class NetworkRequest<ResponseType : Codable>: NetworkRequestProtocol {
     public var url: String?
     
@@ -20,7 +23,8 @@ public final class NetworkRequest<ResponseType : Codable>: NetworkRequestProtoco
     
     public typealias Response = ResponseType
     
-    init(url: String? = nil, type: NetworkRequestType, headers: Dictionary<String, String>? = [:], httpBodyParam: [String : Any]? = [:], queryParam: Dictionary<String, String?>? = [:]) {
+    init(url: String? = nil, type: NetworkRequestType = .get, headers: Dictionary<String, String>? = [:],
+         httpBodyParam: [String : Any]? = [:], queryParam: Dictionary<String, String?>? = [:]) {
         
         self.url = url
         self.type = type

@@ -14,7 +14,8 @@ class ApiService {
     }
     
     static func loadTransactions(email: String, partnerId: String?) -> AnyPublisher<TransactionsResponse, NetworkError>? {
-        let request = NetworkRequest<TransactionsResponse>(type: .get)
+        // Default request type is .get request
+        let request = NetworkRequest<TransactionsResponse>()
         request.httpBodyParam = ["email": email]
         request.queryParam = ["partnerId": partnerId]
         request.headers = RequestHelper.getAuthHeaders()

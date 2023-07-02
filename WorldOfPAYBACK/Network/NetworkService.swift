@@ -8,24 +8,28 @@
 import Foundation
 import Combine
 
-/// A service that can perform network requests.
+/// `NetworkServiceProtocol` is a set of methods to define the actions of `NetworkService`
 public protocol NetworkServiceProtocol {
-    /// Performs the given network request and returns a publisher that emits either the decoded response or an error.
-    ///
-    /// - Parameter request: The network request to perform.
+
+    /**
+     Performs a specified network request with the provided request properties
+     - Parameter request: A network request property that contains all information about the network call
+     - Returns: `AnyPublisher` with the specified response `Type` and `NetworkError` if there is any
+     */
     func perform<T: NetworkRequestProtocol>(_ request: T) -> AnyPublisher<T.Response, NetworkError>
 }
 
-/// Protocol defining necessary URLSession functionality for the `NetworkService`.
+/// Protocol that helps `URLSession` to retturn a `AnyPublisher` wrapping all properties e. g. `Response`, `Error`.
 public protocol URLSessionProtocol {
-    /// Returns a publisher that wraps a URL session data task for a given URL request.
-    ///
-    /// - Parameter request: The URL request to perform.
-    /// - Returns: A publisher that emits a tuple of the data and URL response, or an error.
+    /**
+     This methos is responsible for helping a `URLSession` object to provide `Response` via `AnyPublisher`
+     - Parameter request: A `URLRequest` object
+     - Returns: `AnyPublisher` wrapping  `Data` object with `Response` and `NetworkError`
+     */
     func sessionDataTaskPublisher(for request: URLRequest) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
 }
 
-/// Extension to make `URLSession` conform to `URLSessionProtocol`.
+/// Extension that provides `URLSession` object by a concrete implementation of `URLSessionProtocol`.
 extension URLSession: URLSessionProtocol {
     public func sessionDataTaskPublisher(for request: URLRequest) -> AnyPublisher<(data: Data, response: URLResponse), URLError> {
         return self.dataTaskPublisher(for: request)
@@ -34,21 +38,25 @@ extension URLSession: URLSessionProtocol {
     }
 }
 
-/// A service that handles network requests.
+/**
+ `NetworkService` is a solid implementation of `NetworkServiceProtocol` that performs the actual network request.
+ */
 public final class NetworkService: NetworkServiceProtocol {
 
     private let urlSession: URLSessionProtocol
 
-    /// Creates a new instance of `NetworkService`.
-    ///
-    /// - Parameter urlSession: The URL session to use for the network requests. Defaults to `URLSession.shared`.
+    /**
+     Initializes a `NetworkService` with an instance of `URLSession`
+     - Parameter urlSession: The `URLSsession` object responsible for the actual network request. Defaults to `URLSession.shared`
+     */
     public init(urlSession: URLSessionProtocol = URLSession.shared) {
         self.urlSession = urlSession
     }
 
-    /// Performs the given network request and returns a publisher that emits either the decoded response or an error.
-    ///
-    /// - Parameter request: The network request to perform.
+    /**
+     Performs a network call with the specified `NetworkRequest` and returns the response data or propagate errors if there is any
+     - Parameter request: An object of `NetworkRequest`
+     */
     public func perform<T>(_ request: T) -> AnyPublisher<T.Response, NetworkError> where T : NetworkRequestProtocol {
         
         guard let stringUrl = request.url, var urlComponents = URLComponents(string: stringUrl) else {

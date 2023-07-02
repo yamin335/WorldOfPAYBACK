@@ -9,6 +9,8 @@ import Foundation
 
 /// Protocol that specifies a `NetworkRequest`
 public protocol NetworkRequestProtocol {
+    
+    /// Defining the type of expected response
     associatedtype Response: Codable
 
     /// `URL` for the `NetworkRequest`
@@ -20,8 +22,9 @@ public protocol NetworkRequestProtocol {
     /// The HTTP headers to include with the request.
     var headers: Dictionary<String, String>? { get }
     
-    /// The parameters to include with the request.
+    /// Set of parameters to include with the request body.
     var httpBodyParam: [String: Any]? { get }
     
+    /// Set of parameters to include with the request's query params
     var queryParam: Dictionary<String, String?>? { get }
 }
