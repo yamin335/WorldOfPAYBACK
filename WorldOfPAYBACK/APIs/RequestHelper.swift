@@ -8,6 +8,7 @@
 import Foundation
 
 class RequestHelper {
+    
     #if DEVELOPMENT
     static let baseUrl = "https://api-test.payback.com"
     #else
@@ -24,23 +25,7 @@ class RequestHelper {
     static let successCode = 200
     static let errorCode = 401
     
-    static func getCommonUrlRequest(url: URL) -> URLRequest {
-        var request = URLRequest(url: url)
-        //Setting common headers
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return request
-    }
-    
-    static func getAuthUrlRequest(url: URL) -> URLRequest {
-        var request = URLRequest(url: url)
-        //Setting common headers
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let accessToken = SessionManager.shared.loginToken?.accessToken
-        request.setValue(accessToken, forHTTPHeaderField: "AuthorizedToken")
-        if let userId = SessionManager.shared.userAccount?.id {
-            request.setValue(String(userId), forHTTPHeaderField: "userId")
-        }
-        
-        return request
+    static func getAuthHeaders() -> Dictionary<String, String> {
+        return ["AuthorizedToken" : SessionManager.shared.loginToken?.accessToken ?? ""]
     }
 }

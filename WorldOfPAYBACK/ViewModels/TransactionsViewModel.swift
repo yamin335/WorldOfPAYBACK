@@ -68,7 +68,7 @@ class TransactionsViewModel: BaseViewModel {
 
     /// This function will be used to initiate a real network call to the `Transaction API` in order to get data
     func requestTransactionData() {
-        self.dataSubscriber = ApiService.getTransactionList(partnerId: 0, viewModel: self)?
+        self.dataSubscriber = ApiService.loadTransactions(email: "", partnerId: "")?
             .sink(receiveCompletion: { completion in
                 switch completion {
                     case .finished:
