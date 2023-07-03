@@ -26,12 +26,18 @@ struct BaseView<T: View, V: BaseViewModel>: View {
                 }
             }.onReceive(self.viewModel.successMsgPublisher.receive(on: RunLoop.main)) {
                 showToast, message in
+                if showToast == true && self.appState.isShowingSuccessMsg == showToast {
+                    self.appState.isShowingSuccessMsg = false
+                }
                 self.appState.successMessage = message
                 withAnimation(.easeIn(duration: AppConstants.toastTime)) {
                     self.appState.isShowingSuccessMsg = showToast
                 }
             }.onReceive(self.viewModel.errorMsgPublisher.receive(on: RunLoop.main)) {
                 showToast, message in
+                if showToast == true && self.appState.isShowingErrorMsg == showToast {
+                    self.appState.isShowingErrorMsg = false
+                }
                 self.appState.errorMessage = message
                 withAnimation(.easeIn(duration: AppConstants.toastTime)) {
                     self.appState.isShowingErrorMsg = showToast

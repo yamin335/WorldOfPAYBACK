@@ -28,9 +28,3 @@ struct TransactionListItem: View {
         .padding(.vertical, 12)
     }
 }
-
-//struct TransactionListItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TransactionListItem()
-//    }
-//}

@@ -23,7 +23,7 @@ public final class NetworkRequest<ResponseType : Codable>: NetworkRequestProtoco
     
     public typealias Response = ResponseType
     
-    init(url: String? = nil, type: NetworkRequestType = .get, headers: Dictionary<String, String>? = [:],
+    public init(url: String? = nil, type: NetworkRequestType = .get, headers: Dictionary<String, String>? = [:],
          httpBodyParam: [String : Any]? = [:], queryParam: Dictionary<String, String?>? = [:]) {
         
         self.url = url

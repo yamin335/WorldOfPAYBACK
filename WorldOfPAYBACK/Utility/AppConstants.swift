@@ -31,5 +31,7 @@ struct AppConstants {
     static let connectedMsg = "Connected to network!"
     static let disConnectedMsg = "Disconnected from network!"
     
+    static let emailValidator = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,64}"
+    
     static var appLaunched = false
 }

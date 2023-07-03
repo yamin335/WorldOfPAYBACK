@@ -13,7 +13,7 @@ public protocol NetworkRequestProtocol {
     /// Defining the type of expected response
     associatedtype Response: Codable
 
-    /// `URL` for the `NetworkRequest`
+    /// A String representation of the `URL` for the `NetworkRequest`
     var url: String? { get }
     
     /// `Type` of `NetworkRequest` e.g. (GET, POST, PUT)

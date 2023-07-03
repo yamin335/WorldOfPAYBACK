@@ -30,60 +30,11 @@ struct LoginView: View {
         BaseView(viewModel: viewModel) {
             NavigationStack() {
                 VStack(spacing: 0) {
-                    Text("WorldOfPAYBACK")
-                        .font(.system(size: 30, weight: .black))
-                        .foregroundColor(Color("blue2"))
-                        .padding(.top, 80)
-                    
-                    TextField("Email", text: $viewModel.email)
-                        .focused($focusedField, equals: .email)
-                        .textFieldStyle(RoundedTextFieldStyle(focused: $emailFieldFocused))
-                        .padding(.horizontal, 20)
-                        .padding(.top, 40)
-                    
-                    if showEmailWarning {
-                        Text("Invalid email!")
-                            .textStyle(ErrorTextStyle())
-                            .padding(.horizontal, 30)
-                    }
-                    
-                    SecureField("Password", text: $viewModel.password)
-                        .focused($focusedField, equals: .password)
-                        .textFieldStyle(RoundedTextFieldStyle(focused: $passwordFieldFocused))
-                        .padding(.horizontal, 20)
-                        .padding(.top, 15)
-                    
-                    if showPasswordWarning {
-                        Text("Invalid password!")
-                            .textStyle(ErrorTextStyle())
-                            .padding(.horizontal, 30)
-                    }
-                    
-                    Button("Sign In") {
-                        if appState.isConnected {
-                            self.viewModel.login()
-                        } else {
-                            self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
-                        }
-                    }
-                    .unelevetedButtonStyle()
-                    .padding(.horizontal, 20)
-                    .padding(.top, 15)
-                    .padding(.bottom, 20)
-                    .disabled(loginButtonDisabled)
-                    
-                    HStack(alignment: .center) {
-                        Text("If you don't have an account yet, please")
-                            .foregroundColor(.gray)
-                            .font(.system(size: 14, weight: .regular))
-                        
-                        NavigationLink(destination: SignUpView()) {
-                            Text("Sign Up")
-                                .font(.system(size: 18, weight: .regular))
-                                .foregroundColor(Color("blue2"))
-                        }
-                    }
-                    .padding(.top, 1)
+                    appName
+                    emailView
+                    passwordView
+                    signInButton
+                    signUpInstruction
                     
                     Spacer()
                     
@@ -126,6 +77,77 @@ struct LoginView: View {
                 setDefaultCredentials()
             }
         }
+    }
+    
+    private var appName: some View {
+        Text("WorldOfPAYBACK")
+            .font(.system(size: 30, weight: .black))
+            .foregroundColor(Color("blue2"))
+            .padding(.top, 80)
+    }
+    
+    private var emailView: some View {
+        VStack(spacing: 0) {
+            TextField("Email", text: $viewModel.email)
+                .focused($focusedField, equals: .email)
+                .textFieldStyle(RoundedTextFieldStyle(focused: $emailFieldFocused))
+                .padding(.horizontal, 20)
+                .padding(.top, 40)
+            
+            if showEmailWarning {
+                Text("Invalid email!")
+                    .textStyle(ErrorTextStyle())
+                    .padding(.horizontal, 30)
+            }
+        }
+    }
+    
+    private var passwordView: some View {
+        VStack(spacing: 0) {
+            SecureField("Password", text: $viewModel.password)
+                .focused($focusedField, equals: .password)
+                .textFieldStyle(RoundedTextFieldStyle(focused: $passwordFieldFocused))
+                .padding(.horizontal, 20)
+                .padding(.top, 15)
+            
+            if showPasswordWarning {
+                Text("Invalid password!")
+                    .textStyle(ErrorTextStyle())
+                    .padding(.horizontal, 30)
+            }
+        }
+    }
+    
+    private var signInButton: some View {
+        Button("Sign In") {
+            if appState.isConnected {
+                Task {
+                    await self.viewModel.login()
+                }
+            } else {
+                self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
+            }
+        }
+        .unelevetedButtonStyle()
+        .padding(.horizontal, 20)
+        .padding(.top, 15)
+        .padding(.bottom, 20)
+        .disabled(loginButtonDisabled)
+    }
+    
+    private var signUpInstruction: some View {
+        HStack(alignment: .center) {
+            Text("If you don't have an account yet, please")
+                .foregroundColor(.gray)
+                .font(.system(size: 14, weight: .regular))
+            
+            NavigationLink(destination: SignUpView()) {
+                Text("Sign Up")
+                    .font(.system(size: 18, weight: .regular))
+                    .foregroundColor(Color("blue2"))
+            }
+        }
+        .padding(.top, 1)
     }
     
     private func setDefaultCredentials() {

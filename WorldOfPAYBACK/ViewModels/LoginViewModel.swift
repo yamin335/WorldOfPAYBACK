@@ -47,7 +47,8 @@ class LoginViewModel: BaseViewModel {
         .eraseToAnyPublisher()
     }
     
-    func login() {
+    @MainActor
+    func login() async {
         // Implement real api call here later
         guard let users = session.registeredUsers?.users else {
             self.loginStatusPublisher.send(false)
@@ -62,17 +63,17 @@ class LoginViewModel: BaseViewModel {
             }
         }
         
-        showLoader()
+        self.showLoader()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.mockWaitingTime) {
-            if self.session.isLoggedIn {
-                self.showSuccessMsg(msg: "Login successful!")
-                self.loginStatusPublisher.send(true)
-            } else {
-                self.loginStatusPublisher.send(false)
-                self.showErrorMsg(msg: "Login failed! please check your credentials.")
-            }
-            self.hideLoader()
+        try? await Task.sleep(for: .seconds(AppConstants.mockWaitingTime))
+        
+        if self.session.isLoggedIn {
+            self.showSuccessMsg(msg: "Login successful!")
+            self.loginStatusPublisher.send(true)
+        } else {
+            self.loginStatusPublisher.send(false)
+            self.showErrorMsg(msg: "Login failed! please check your credentials.")
         }
+        self.hideLoader()
     }
 }

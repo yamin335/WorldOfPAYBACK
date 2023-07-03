@@ -97,21 +97,6 @@
 		6E7DE6962A50822C00515E01 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6952A50822C00515E01 /* SettingsViewModel.swift */; };
 		6E7DE6972A50822C00515E01 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6952A50822C00515E01 /* SettingsViewModel.swift */; };
 		6E7DE6982A50822C00515E01 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6952A50822C00515E01 /* SettingsViewModel.swift */; };
-		6E7DE69C2A50B52A00515E01 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE69B2A50B52A00515E01 /* NetworkRequestType.swift */; };
-		6E7DE69D2A50B52A00515E01 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE69B2A50B52A00515E01 /* NetworkRequestType.swift */; };
-		6E7DE69E2A50B52A00515E01 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE69B2A50B52A00515E01 /* NetworkRequestType.swift */; };
-		6E7DE6A02A50B60B00515E01 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE69F2A50B60B00515E01 /* NetworkError.swift */; };
-		6E7DE6A12A50B60B00515E01 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE69F2A50B60B00515E01 /* NetworkError.swift */; };
-		6E7DE6A22A50B60B00515E01 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE69F2A50B60B00515E01 /* NetworkError.swift */; };
-		6E7DE6A42A50C16C00515E01 /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6A32A50C16C00515E01 /* NetworkRequestProtocol.swift */; };
-		6E7DE6A52A50C16C00515E01 /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6A32A50C16C00515E01 /* NetworkRequestProtocol.swift */; };
-		6E7DE6A62A50C16C00515E01 /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6A32A50C16C00515E01 /* NetworkRequestProtocol.swift */; };
-		6E7DE6A82A50D33200515E01 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6A72A50D33200515E01 /* NetworkService.swift */; };
-		6E7DE6A92A50D33200515E01 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6A72A50D33200515E01 /* NetworkService.swift */; };
-		6E7DE6AA2A50D33200515E01 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6A72A50D33200515E01 /* NetworkService.swift */; };
-		6E7DE6AC2A50D9A500515E01 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6AB2A50D9A500515E01 /* NetworkRequest.swift */; };
-		6E7DE6AD2A50D9A500515E01 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6AB2A50D9A500515E01 /* NetworkRequest.swift */; };
-		6E7DE6AE2A50D9A500515E01 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7DE6AB2A50D9A500515E01 /* NetworkRequest.swift */; };
 		6E86E8542A4E782200413AA4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E8532A4E782200413AA4 /* SignUpViewModel.swift */; };
 		6E9100D32A4ED969003D790B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100D22A4ED969003D790B /* SignUpView.swift */; };
 		6E9100D42A4ED969003D790B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100D22A4ED969003D790B /* SignUpView.swift */; };
@@ -137,6 +122,7 @@
 		6E9100F02A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
 		6E9100F12A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
 		6E9100F22A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
+		6EAEC2DA2A51D8F100F0A446 /* SwiftNetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 6EAEC2D92A51D8F100F0A446 /* SwiftNetworkService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,11 +180,6 @@
 		6E7DE6892A5039A600515E01 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		6E7DE68D2A504AFC00515E01 /* ListEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmptyView.swift; sourceTree = "<group>"; };
 		6E7DE6952A50822C00515E01 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		6E7DE69B2A50B52A00515E01 /* NetworkRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestType.swift; sourceTree = "<group>"; };
-		6E7DE69F2A50B60B00515E01 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		6E7DE6A32A50C16C00515E01 /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
-		6E7DE6A72A50D33200515E01 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		6E7DE6AB2A50D9A500515E01 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		6E86E8532A4E782200413AA4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		6E9100D22A4ED969003D790B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		6E9100D62A4F2011003D790B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -215,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EAEC2DA2A51D8F100F0A446 /* SwiftNetworkService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +240,7 @@
 				6E76D7332A4C8726009052AF /* WorldOfPAYBACKTests */,
 				6E76D73D2A4C8726009052AF /* WorldOfPAYBACKUITests */,
 				6E76D7212A4C8724009052AF /* Products */,
+				6EAEC2D82A51D8F100F0A446 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,7 +257,6 @@
 		6E76D7222A4C8724009052AF /* WorldOfPAYBACK */ = {
 			isa = PBXGroup;
 			children = (
-				6E7DE6992A50B35500515E01 /* Network */,
 				6E1E2F8B2A4E54C600E0C496 /* Custom Components */,
 				6E1E2F6D2A4DDD5300E0C496 /* Session */,
 				6E76D77A2A4CF86B009052AF /* APIs */,
@@ -416,16 +398,11 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6E7DE6992A50B35500515E01 /* Network */ = {
+		6EAEC2D82A51D8F100F0A446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E7DE69B2A50B52A00515E01 /* NetworkRequestType.swift */,
-				6E7DE69F2A50B60B00515E01 /* NetworkError.swift */,
-				6E7DE6A32A50C16C00515E01 /* NetworkRequestProtocol.swift */,
-				6E7DE6A72A50D33200515E01 /* NetworkService.swift */,
-				6E7DE6AB2A50D9A500515E01 /* NetworkRequest.swift */,
 			);
-			path = Network;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +421,9 @@
 			dependencies = (
 			);
 			name = WorldOfPAYBACK;
+			packageProductDependencies = (
+				6EAEC2D92A51D8F100F0A446 /* SwiftNetworkService */,
+			);
 			productName = WorldOfPAYBACK;
 			productReference = 6E76D7202A4C8724009052AF /* WorldOfPAYBACK.app */;
 			productType = "com.apple.product-type.application";
@@ -516,6 +496,9 @@
 				Base,
 			);
 			mainGroup = 6E76D7172A4C8724009052AF;
+			packageReferences = (
+				6EAEC2D52A51D5ED00F0A446 /* XCRemoteSwiftPackageReference "SwiftNetworkService" */,
+			);
 			productRefGroup = 6E76D7212A4C8724009052AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -573,7 +556,6 @@
 				6E76D7912A4D007B009052AF /* AppConstants.swift in Sources */,
 				6E76D77C2A4CFD52009052AF /* JsonLoader.swift in Sources */,
 				6E1E2F912A4E634F00E0C496 /* RoundedTextFieldStyle.swift in Sources */,
-				6E7DE6A02A50B60B00515E01 /* NetworkError.swift in Sources */,
 				6E1E2F802A4E266400E0C496 /* BottomTabContainerView.swift in Sources */,
 				6E7DE6962A50822C00515E01 /* SettingsViewModel.swift in Sources */,
 				6E76D79A2A4D0171009052AF /* TransactionsResponse.swift in Sources */,
@@ -586,10 +568,8 @@
 				6E76D7952A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
 				6E9100D72A4F2011003D790B /* SettingsView.swift in Sources */,
 				6E76D7242A4C8724009052AF /* WorldOfPAYBACKApp.swift in Sources */,
-				6E7DE6A82A50D33200515E01 /* NetworkService.swift in Sources */,
 				6E76D7612A4CD33F009052AF /* NetworkObserver.swift in Sources */,
 				6E1E2F782A4DEC8B00E0C496 /* LoginView.swift in Sources */,
-				6E7DE6AC2A50D9A500515E01 /* NetworkRequest.swift in Sources */,
 				6E76D79E2A4D0573009052AF /* LoginModels.swift in Sources */,
 				6E9100E42A4F542B003D790B /* TransactionCategory.swift in Sources */,
 				6E1E2F842A4E271700E0C496 /* Extensions.swift in Sources */,
@@ -597,8 +577,6 @@
 				6E9100F02A4F826D003D790B /* TransactionDetailsView.swift in Sources */,
 				6E1E2F6F2A4DE7AE00E0C496 /* MainContentView.swift in Sources */,
 				6E9100E02A4F29FE003D790B /* TransactionsViewModel.swift in Sources */,
-				6E7DE6A42A50C16C00515E01 /* NetworkRequestProtocol.swift in Sources */,
-				6E7DE69C2A50B52A00515E01 /* NetworkRequestType.swift in Sources */,
 				6E9100D32A4ED969003D790B /* SignUpView.swift in Sources */,
 				6E1E2F742A4DEAC300E0C496 /* SplashView.swift in Sources */,
 				6E76D78D2A4D004D009052AF /* ApiService.swift in Sources */,
@@ -619,13 +597,9 @@
 				6E7DE68F2A504AFC00515E01 /* ListEmptyView.swift in Sources */,
 				6E1E2F8E2A4E54F400E0C496 /* RoundedTextField.swift in Sources */,
 				6E9100E12A4F29FE003D790B /* TransactionsViewModel.swift in Sources */,
-				6E7DE6AD2A50D9A500515E01 /* NetworkRequest.swift in Sources */,
 				6E76D77D2A4CFD52009052AF /* JsonLoader.swift in Sources */,
-				6E7DE6A92A50D33200515E01 /* NetworkService.swift in Sources */,
 				6E76D7962A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
 				6E9100ED2A4F7EF0003D790B /* TransactionSumView.swift in Sources */,
-				6E7DE69D2A50B52A00515E01 /* NetworkRequestType.swift in Sources */,
-				6E7DE6A52A50C16C00515E01 /* NetworkRequestProtocol.swift in Sources */,
 				6E76D76B2A4CF4C1009052AF /* OutlinedButtonStyle.swift in Sources */,
 				6E9100D42A4ED969003D790B /* SignUpView.swift in Sources */,
 				6E1E2F702A4DE7AE00E0C496 /* MainContentView.swift in Sources */,
@@ -639,7 +613,6 @@
 				6E76D7622A4CD33F009052AF /* NetworkObserver.swift in Sources */,
 				6E9100F12A4F826D003D790B /* TransactionDetailsView.swift in Sources */,
 				6E76D79F2A4D0573009052AF /* LoginModels.swift in Sources */,
-				6E7DE6A12A50B60B00515E01 /* NetworkError.swift in Sources */,
 				6E1E2F752A4DEAC300E0C496 /* SplashView.swift in Sources */,
 				6E76D7782A4CF829009052AF /* SessionManager.swift in Sources */,
 				6E1E2F812A4E266400E0C496 /* BottomTabContainerView.swift in Sources */,
@@ -670,7 +643,6 @@
 				6E76D7932A4D007B009052AF /* AppConstants.swift in Sources */,
 				6E76D7412A4C8726009052AF /* WorldOfPAYBACKUITestsLaunchTests.swift in Sources */,
 				6E76D77E2A4CFD52009052AF /* JsonLoader.swift in Sources */,
-				6E7DE6A22A50B60B00515E01 /* NetworkError.swift in Sources */,
 				6E1E2F932A4E634F00E0C496 /* RoundedTextFieldStyle.swift in Sources */,
 				6E7DE6982A50822C00515E01 /* SettingsViewModel.swift in Sources */,
 				6E9100EE2A4F7EF0003D790B /* TransactionSumView.swift in Sources */,
@@ -683,10 +655,8 @@
 				6E7DE6902A504AFC00515E01 /* ListEmptyView.swift in Sources */,
 				6E76D7832A4CFE37009052AF /* SuccessToastView.swift in Sources */,
 				6E76D78B2A4CFF6D009052AF /* RequestHelper.swift in Sources */,
-				6E7DE6AA2A50D33200515E01 /* NetworkService.swift in Sources */,
 				6E9100D52A4ED969003D790B /* SignUpView.swift in Sources */,
 				6E76D7972A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
-				6E7DE6AE2A50D9A500515E01 /* NetworkRequest.swift in Sources */,
 				6E76D73F2A4C8726009052AF /* WorldOfPAYBACKUITests.swift in Sources */,
 				6E76D7632A4CD33F009052AF /* NetworkObserver.swift in Sources */,
 				6E1E2F7A2A4DEC8B00E0C496 /* LoginView.swift in Sources */,
@@ -694,8 +664,6 @@
 				6E76D7A02A4D0573009052AF /* LoginModels.swift in Sources */,
 				6E1E2F862A4E271700E0C496 /* Extensions.swift in Sources */,
 				6E1E2F712A4DE7AE00E0C496 /* MainContentView.swift in Sources */,
-				6E7DE6A62A50C16C00515E01 /* NetworkRequestProtocol.swift in Sources */,
-				6E7DE69E2A50B52A00515E01 /* NetworkRequestType.swift in Sources */,
 				6E1E2F762A4DEAC300E0C496 /* SplashView.swift in Sources */,
 				6E7DE68C2A5039A600515E01 /* BaseView.swift in Sources */,
 				6E76D78F2A4D004D009052AF /* ApiService.swift in Sources */,
@@ -1003,6 +971,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6EAEC2D52A51D5ED00F0A446 /* XCRemoteSwiftPackageReference "SwiftNetworkService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yamin335/SwiftNetworkService";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6EAEC2D92A51D8F100F0A446 /* SwiftNetworkService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6EAEC2D52A51D5ED00F0A446 /* XCRemoteSwiftPackageReference "SwiftNetworkService" */;
+			productName = SwiftNetworkService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6E76D7182A4C8724009052AF /* Project object */;
 }

@@ -27,7 +27,7 @@ class SignUpViewModel: BaseViewModel {
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { email in
-                let regexPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,64}"
+                let regexPattern = AppConstants.emailValidator
                 let range = email.range(of: regexPattern, options: .regularExpression)
                 
                 return !(email.isEmpty || range == nil)
@@ -61,7 +61,8 @@ class SignUpViewModel: BaseViewModel {
         .eraseToAnyPublisher()
     }
     
-    func signUp() {
+    @MainActor
+    func signUp() async {
         // Implement real api call here later
         var temp: [UserAccount] = []
         if let users = session.registeredUsers?.users {
@@ -72,11 +73,9 @@ class SignUpViewModel: BaseViewModel {
         session.registeredUsers = RegisteredUsers(users: temp)
         
         showLoader()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.mockWaitingTime) {
-            self.showSuccessMsg(msg: "Account created successfully!")
-            self.signUpStatusPublisher.send(true)
-            self.hideLoader()
-        }
+        try? await Task.sleep(for: .seconds(AppConstants.mockWaitingTime))
+        self.showSuccessMsg(msg: "Account created successfully!")
+        self.signUpStatusPublisher.send(true)
+        self.hideLoader()
     }
 }

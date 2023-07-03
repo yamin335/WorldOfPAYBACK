@@ -45,4 +45,8 @@ class BaseViewModel: NSObject, ObservableObject, URLSessionTaskDelegate {
     func showSuccessMsg(msg: String) {
         successMsgPublisher.send((true, msg))
     }
+    
+    func notifyUI() {
+        self.objectWillChange.send()
+    }
 }

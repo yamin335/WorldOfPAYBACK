@@ -51,7 +51,8 @@ struct MainContentView: View {
             }
 
             if self.appState.isLoading {
-                SpinLoaderView().transition(.fadeInFadeOut).zIndex(10)
+                //SpinLoaderView().transition(.fadeInFadeOut).zIndex(10)
+                ProgressView().frame(width: 200, height: 200)
             }
         }
         .onReceive(self.networkObserver.networkStatusPublisher.receive(on: RunLoop.main)) { status in

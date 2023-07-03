@@ -25,85 +25,18 @@ struct SignUpView: View {
     var body: some View {
         BaseView(viewModel: viewModel) {
             VStack(spacing: 0) {
-                HStack(alignment: .center) {
-                    Text("If you already have an account, please")
-                        .foregroundColor(.gray).font(.subheadline)
-                    Button(action: {
-                        withAnimation() {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    }) {
-                        Text("Sign In")
-                            .foregroundColor(Color("blue2"))
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 30)
+                signInInstruction
+                emailView
+                passwordView
+                confirmPasswordView
+                signUpButton
+                Spacer()
                 
-                Group {
-                    TextField("Email", text: $viewModel.email)
-                        .focused($focusedField, equals: .email)
-                        .textFieldStyle(RoundedTextFieldStyle(focused: $emailFieldFocused))
-                        .padding(.horizontal, 20)
-                        .padding(.top, 20)
-                    
-                    if showEmailWarning {
-                        Text("Invalid email!")
-                            .textStyle(ErrorTextStyle())
-                            .padding(.horizontal, 30)
-                    }
-                    
-                    SecureField("Password", text: $viewModel.password)
-                        .focused($focusedField, equals: .password)
-                        .textFieldStyle(RoundedTextFieldStyle(focused: $passwordFieldFocused))
-                        .padding(.horizontal, 20)
-                        .padding(.top, 15)
-                }
-                
-                Group {
-                    if showPasswordWarning {
-                        Text("Invalid password!")
-                            .textStyle(ErrorTextStyle())
-                            .padding(.horizontal, 30)
-                    }
-                    
-                    SecureField("Re-Type Password", text: $viewModel.confirmPassword)
-                        .focused($focusedField, equals: .confirmPassword)
-                        .textFieldStyle(RoundedTextFieldStyle(focused: $confirmPasswordFieldFocused))
-                        .padding(.horizontal, 20)
-                        .padding(.top, 15)
-                    
-                    if showConfirmPasswordWarning {
-                        Text("Invalid Re-Type password!")
-                            .textStyle(ErrorTextStyle())
-                            .padding(.horizontal, 30)
-                    }
-                }
-                
-                Group {
-                    Button("Sign Up") {
-                        if appState.isConnected {
-                            self.viewModel.signUp()
-                        } else {
-                            self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
-                        }
-                    }
-                    .unelevetedButtonStyle()
-                    .padding(.horizontal, 20)
-                    .padding(.top, 25)
-                    .padding(.bottom, 20)
-                    .disabled(signUpButtonDisabled)
-                    
-                    Spacer()
-                    
-                    Text("All rights reserved. Copyright ©2023, PAYBACK Group.")
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 30)
-                }
+                Text("All rights reserved. Copyright ©2023, PAYBACK Group.")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 30)
                 .onChange(of: focusedField, perform: { newValue in
                     withAnimation(.linear(duration: 0.2)) {
                         emailFieldFocused = newValue == .email
@@ -141,6 +74,90 @@ struct SignUpView: View {
             .background(Color("grayBlue1"))
             .navigationTitle("Create Your Account")
         }
+    }
+    
+    private var signInInstruction: some View {
+        HStack(alignment: .center) {
+            Text("If you already have an account, please")
+                .foregroundColor(.gray).font(.subheadline)
+            Button(action: {
+                withAnimation() {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            }) {
+                Text("Sign In")
+                    .foregroundColor(Color("blue2"))
+            }
+            
+            Spacer()
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 30)
+    }
+    
+    private var emailView: some View {
+        VStack(spacing: 0) {
+            TextField("Email", text: $viewModel.email)
+                .focused($focusedField, equals: .email)
+                .textFieldStyle(RoundedTextFieldStyle(focused: $emailFieldFocused))
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+            
+            if showEmailWarning {
+                Text("Invalid email!")
+                    .textStyle(ErrorTextStyle())
+                    .padding(.horizontal, 30)
+            }
+        }
+    }
+    
+    private var passwordView: some View {
+        VStack(spacing: 0) {
+            SecureField("Password", text: $viewModel.password)
+                .focused($focusedField, equals: .password)
+                .textFieldStyle(RoundedTextFieldStyle(focused: $passwordFieldFocused))
+                .padding(.horizontal, 20)
+                .padding(.top, 15)
+            
+            if showPasswordWarning {
+                Text("Invalid password!")
+                    .textStyle(ErrorTextStyle())
+                    .padding(.horizontal, 30)
+            }
+        }
+    }
+    
+    private var confirmPasswordView: some View {
+        VStack(spacing: 0) {
+            SecureField("Re-Type Password", text: $viewModel.confirmPassword)
+                .focused($focusedField, equals: .confirmPassword)
+                .textFieldStyle(RoundedTextFieldStyle(focused: $confirmPasswordFieldFocused))
+                .padding(.horizontal, 20)
+                .padding(.top, 15)
+            
+            if showConfirmPasswordWarning {
+                Text("Invalid Re-Type password!")
+                    .textStyle(ErrorTextStyle())
+                    .padding(.horizontal, 30)
+            }
+        }
+    }
+    
+    private var signUpButton: some View {
+        Button("Sign Up") {
+            if appState.isConnected {
+                Task {
+                    await self.viewModel.signUp()
+                }
+            } else {
+                self.viewModel.showErrorMsg(msg: AppConstants.networkErrorMsg)
+            }
+        }
+        .unelevetedButtonStyle()
+        .padding(.horizontal, 20)
+        .padding(.top, 25)
+        .padding(.bottom, 20)
+        .disabled(signUpButtonDisabled)
     }
 }
 
