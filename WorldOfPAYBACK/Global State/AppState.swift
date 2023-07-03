@@ -26,6 +26,9 @@ class AppState: ObservableObject {
         }
     }
     
+    @Published var sumOfTransaction: Int
+    @Published var currency: String
+    
     @Published var isSplashShown: Bool
     
     @Published var isLoading: Bool
@@ -49,6 +52,8 @@ class AppState: ObservableObject {
     
         
     init() {
+        self.sumOfTransaction = 0
+        self.currency = AppConstants.defaultCurrency
         self.isSplashShown = false
         self.isLoading = false
         self.accessToken = UserDefaults.standard.string(forKey: "access_token") ?? ""

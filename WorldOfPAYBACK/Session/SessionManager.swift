@@ -23,6 +23,16 @@ class SessionManager {
         }
     }
     
+    var sumOfAllTransaction: Int {
+        set {
+            userDefault.set(newValue, forKey: AppConstants.keySumOfAllTransaction)
+        }
+        
+        get {
+            return userDefault.integer(forKey: AppConstants.keySumOfAllTransaction)
+        }
+    }
+    
     var loginToken: LoginToken? {
         set {
             if let newValue = newValue, let encodedData = try? JSONEncoder().encode(newValue) {

@@ -51,8 +51,7 @@ struct MainContentView: View {
             }
 
             if self.appState.isLoading {
-                //SpinLoaderView().transition(.fadeInFadeOut).zIndex(10)
-                ProgressView().frame(width: 200, height: 200)
+                ProgressView().scaleEffect(x: 1.6, y: 1.6).zIndex(10)
             }
         }
         .onReceive(self.networkObserver.networkStatusPublisher.receive(on: RunLoop.main)) { status in
@@ -78,6 +77,7 @@ struct MainContentView: View {
                 session.registeredUsers = RegisteredUsers(users: [UserAccount(id: 0, email: AppConstants.defaultEmail, password: AppConstants.defaultPassword, retypepassword: AppConstants.defaultPassword)])
             }
             networkObserver.startObserving()
+            self.appState.sumOfTransaction = session.sumOfAllTransaction
         }
         .onDisappear {
             networkObserver.stopObserving()

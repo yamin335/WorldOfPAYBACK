@@ -23,7 +23,15 @@ struct TransactionView: View {
                     
                     listView
                 }.navigationTitle("All Transaction")
-            }.task {
+            }
+            .onChange(of: viewModel.sumOfTransaction, perform: { newValue in
+                appState.sumOfTransaction = newValue
+                SessionManager.shared.sumOfAllTransaction = newValue
+            })
+            .onChange(of: viewModel.currency, perform: { newValue in
+                appState.currency = newValue
+            })
+            .task {
                 await loadData(isRefreshing: false)
             }
         }

@@ -79,9 +79,6 @@
 		6E76D7912A4D007B009052AF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7902A4D007B009052AF /* AppConstants.swift */; };
 		6E76D7922A4D007B009052AF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7902A4D007B009052AF /* AppConstants.swift */; };
 		6E76D7932A4D007B009052AF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7902A4D007B009052AF /* AppConstants.swift */; };
-		6E76D7952A4D00CB009052AF /* SpinLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7942A4D00CB009052AF /* SpinLoaderView.swift */; };
-		6E76D7962A4D00CB009052AF /* SpinLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7942A4D00CB009052AF /* SpinLoaderView.swift */; };
-		6E76D7972A4D00CB009052AF /* SpinLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7942A4D00CB009052AF /* SpinLoaderView.swift */; };
 		6E76D79A2A4D0171009052AF /* TransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7992A4D0171009052AF /* TransactionsResponse.swift */; };
 		6E76D79B2A4D0171009052AF /* TransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7992A4D0171009052AF /* TransactionsResponse.swift */; };
 		6E76D79C2A4D0171009052AF /* TransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76D7992A4D0171009052AF /* TransactionsResponse.swift */; };
@@ -174,7 +171,6 @@
 		6E76D7882A4CFF6D009052AF /* RequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		6E76D78C2A4D004D009052AF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		6E76D7902A4D007B009052AF /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		6E76D7942A4D00CB009052AF /* SpinLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinLoaderView.swift; sourceTree = "<group>"; };
 		6E76D7992A4D0171009052AF /* TransactionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsResponse.swift; sourceTree = "<group>"; };
 		6E76D79D2A4D0573009052AF /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 		6E7DE6892A5039A600515E01 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -372,7 +368,6 @@
 			children = (
 				6E76D7802A4CFE37009052AF /* SuccessToastView.swift */,
 				6E76D7842A4CFE5F009052AF /* ErrorToastView.swift */,
-				6E76D7942A4D00CB009052AF /* SpinLoaderView.swift */,
 				6E1E2F6E2A4DE7AE00E0C496 /* MainContentView.swift */,
 				6E1E2F732A4DEAC300E0C496 /* SplashView.swift */,
 				6E1E2F772A4DEC8B00E0C496 /* LoginView.swift */,
@@ -565,7 +560,6 @@
 				6E76D76E2A4CF51C009052AF /* TextStyles.swift in Sources */,
 				6E76D7812A4CFE37009052AF /* SuccessToastView.swift in Sources */,
 				6E76D7892A4CFF6D009052AF /* RequestHelper.swift in Sources */,
-				6E76D7952A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
 				6E9100D72A4F2011003D790B /* SettingsView.swift in Sources */,
 				6E76D7242A4C8724009052AF /* WorldOfPAYBACKApp.swift in Sources */,
 				6E76D7612A4CD33F009052AF /* NetworkObserver.swift in Sources */,
@@ -598,7 +592,6 @@
 				6E1E2F8E2A4E54F400E0C496 /* RoundedTextField.swift in Sources */,
 				6E9100E12A4F29FE003D790B /* TransactionsViewModel.swift in Sources */,
 				6E76D77D2A4CFD52009052AF /* JsonLoader.swift in Sources */,
-				6E76D7962A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
 				6E9100ED2A4F7EF0003D790B /* TransactionSumView.swift in Sources */,
 				6E76D76B2A4CF4C1009052AF /* OutlinedButtonStyle.swift in Sources */,
 				6E9100D42A4ED969003D790B /* SignUpView.swift in Sources */,
@@ -656,7 +649,6 @@
 				6E76D7832A4CFE37009052AF /* SuccessToastView.swift in Sources */,
 				6E76D78B2A4CFF6D009052AF /* RequestHelper.swift in Sources */,
 				6E9100D52A4ED969003D790B /* SignUpView.swift in Sources */,
-				6E76D7972A4D00CB009052AF /* SpinLoaderView.swift in Sources */,
 				6E76D73F2A4C8726009052AF /* WorldOfPAYBACKUITests.swift in Sources */,
 				6E76D7632A4CD33F009052AF /* NetworkObserver.swift in Sources */,
 				6E1E2F7A2A4DEC8B00E0C496 /* LoginView.swift in Sources */,

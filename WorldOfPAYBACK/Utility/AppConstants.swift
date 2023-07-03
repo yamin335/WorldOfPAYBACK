@@ -15,10 +15,11 @@ struct AppConstants {
     static let keyLoginToken = "login_token"
     static let keyUserAccount = "user_account"
     static let keyRegisteredUsers = "registered_users"
+    static let keySumOfAllTransaction = "sum_of_all_transaction"
     
     // MARK: - Global constant values
     static let toastTime = 0.5
-    static let toastStayTime = 2.0
+    static let toastStayTime = 1.0
     static let mockWaitingTime = 2.0
     
     //  MARK: - Default login credentials
