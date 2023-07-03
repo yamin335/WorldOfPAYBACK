@@ -16,6 +16,7 @@ enum Field: Hashable {
 struct LoginView: View {
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel = LoginViewModel()
+    @State var path: NavigationPath = .init()
     @State private var loginButtonDisabled = true
     private let session = SessionManager.shared
     
@@ -28,7 +29,7 @@ struct LoginView: View {
     
     var body: some View {
         BaseView(viewModel: viewModel) {
-            NavigationStack() {
+            NavigationStack(path: $path.animation(.easeOut)) {
                 VStack(spacing: 0) {
                     appName
                     emailView
@@ -45,8 +46,12 @@ struct LoginView: View {
                         .padding(.bottom, 30)
                 }
                 .background(Color("grayBlue1"))
+                .navigationDestination(for: String.self) { tag in
+                    if tag == SignUpView.tag {
+                        SignUpView(path: $path)
+                    }
+                }
             }
-            .navigationTitle("Sign In")
             .onChange(of: focusedField, perform: { newValue in
                 withAnimation(.linear(duration: 0.2)) {
                     emailFieldFocused = newValue == .email
@@ -141,11 +146,14 @@ struct LoginView: View {
                 .foregroundColor(.gray)
                 .font(.system(size: 14, weight: .regular))
             
-            NavigationLink(destination: SignUpView()) {
-                Text("Sign Up")
-                    .font(.system(size: 18, weight: .regular))
-                    .foregroundColor(Color("blue2"))
-            }
+            Text("Sign Up")
+                .font(.system(size: 18, weight: .regular))
+                .foregroundColor(Color("blue2"))
+                .onTapGesture {
+                    withAnimation {
+                        path.append(SignUpView.tag)
+                    }
+                }
         }
         .padding(.top, 1)
     }

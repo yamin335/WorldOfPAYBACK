@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TransactionView: View {
+    @State var path: NavigationPath = .init()
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel = TransactionsViewModel()
     @State var selectedCategoryLabel: String = TransactionCategory.all.title
     
     var body: some View {
         BaseView(viewModel: viewModel) {
-            NavigationStack {
+            NavigationStack(path: $path.animation(.easeOut)) {
                 VStack(spacing: 20) {
                     filterView
                     .padding(.horizontal, 20)
@@ -23,6 +24,9 @@ struct TransactionView: View {
                     
                     listView
                 }.navigationTitle("All Transaction")
+                .navigationDestination(for: Transaction.self) { transaction in
+                    TransactionDetailsView(data: transaction, path: $path)
+                }
             }
             .onChange(of: viewModel.sumOfTransaction, perform: { newValue in
                 appState.sumOfTransaction = newValue
@@ -77,15 +81,18 @@ struct TransactionView: View {
     private var listView: some View {
         List {
             ForEach(Array(viewModel.filteredTransactions.enumerated()), id: \.offset) { index, data in
-                NavigationLink(destination: TransactionDetailsView(data: data)) {
-                    TransactionListItem(data: data)
-                }
-                .listRowSeparator(.hidden, edges: .all)
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .padding(.horizontal, 12)
-                .background(RoundedRectangle(cornerRadius: 10, style: .circular).fill(Color("gray6")))
-                .padding(.vertical, 8)
-                .padding(.horizontal, 16)
+                TransactionListItem(data: data)
+                    .listRowSeparator(.hidden, edges: .all)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .padding(.horizontal, 12)
+                    .background(RoundedRectangle(cornerRadius: 10, style: .circular).fill(Color("gray6")))
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .onTapGesture {
+                        withAnimation {
+                            path.append(data)
+                        }
+                    }
             }
         }
         .listStyle(.plain)

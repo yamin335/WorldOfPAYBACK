@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransactionDetailsView: View {
     let data: Transaction
+    @Binding var path: NavigationPath
     
     var body: some View {
         VStack {

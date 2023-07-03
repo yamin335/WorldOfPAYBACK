@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @Environment(\.presentationMode) var presentationMode
+    static let tag = "SignUpView"
     @EnvironmentObject var appState: AppState
     @StateObject var viewModel = SignUpViewModel()
+    @Binding var path: NavigationPath
     @State private var signUpButtonDisabled = true
     
     @State var showEmailWarning = false
@@ -65,8 +66,10 @@ struct SignUpView: View {
             }.onReceive(self.viewModel.signUpStatusPublisher.receive(on: RunLoop.main)) { isSuccess in
                 if isSuccess {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        withAnimation() {
-                            self.presentationMode.wrappedValue.dismiss()
+                        while path.count > 0 {
+                            withAnimation() {
+                                path.removeLast()
+                            }
                         }
                     }
                 }
@@ -81,8 +84,10 @@ struct SignUpView: View {
             Text("If you already have an account, please")
                 .foregroundColor(.gray).font(.subheadline)
             Button(action: {
-                withAnimation() {
-                    self.presentationMode.wrappedValue.dismiss()
+                while path.count > 0 {
+                    withAnimation() {
+                        path.removeLast()
+                    }
                 }
             }) {
                 Text("Sign In")
@@ -162,7 +167,8 @@ struct SignUpView: View {
 }
 
 struct SignUpView_Previews: PreviewProvider {
+    @State static var path: NavigationPath = .init()
     static var previews: some View {
-        SignUpView()
+        SignUpView(path: $path)
     }
 }

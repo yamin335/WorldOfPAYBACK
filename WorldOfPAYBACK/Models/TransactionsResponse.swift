@@ -14,7 +14,7 @@ struct TransactionsResponse: Codable {
 }
 
 // MARK: - Transaction
-struct Transaction: Codable {
+struct Transaction: Codable, Hashable {
     let partnerDisplayName: String?
     let alias: Alias?
     let category: Int?
@@ -22,19 +22,19 @@ struct Transaction: Codable {
 }
 
 // MARK: - Alias
-struct Alias: Codable {
+struct Alias: Codable, Hashable {
     let reference: String?
 }
 
 // MARK: - TransactionDetail
-struct TransactionDetail: Codable {
+struct TransactionDetail: Codable, Hashable {
     let description: String?
     let bookingDate: Date?
     let value: TransactionValue?
 }
 
 // MARK: - TransactionValue
-struct TransactionValue: Codable {
+struct TransactionValue: Codable, Hashable {
     let amount: Int?
     let currency: String?
 }
