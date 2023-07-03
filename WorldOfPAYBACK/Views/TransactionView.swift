@@ -29,8 +29,10 @@ struct TransactionView: View {
                 }
             }
             .onChange(of: viewModel.sumOfTransaction, perform: { newValue in
-                appState.sumOfTransaction = newValue
-                SessionManager.shared.sumOfAllTransaction = newValue
+                if viewModel.category == .all {
+                    appState.sumOfTransaction = newValue
+                    SessionManager.shared.sumOfAllTransaction = newValue
+                }
             })
             .onChange(of: viewModel.currency, perform: { newValue in
                 appState.currency = newValue
