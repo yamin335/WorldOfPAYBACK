@@ -11,7 +11,7 @@
         "bookingDate" : "2022-07-24T10:59:05+0200",
         "value" : {
           "amount" : 124,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -26,7 +26,7 @@
         "bookingDate" : "2022-06-23T10:59:05+0200",
         "value" : {
           "amount" : 1240,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -40,7 +40,7 @@
         "bookingDate" : "2022-07-22T10:59:05+0200",
         "value" : {
           "amount" : 53,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -55,7 +55,7 @@
         "bookingDate" : "2022-04-10T10:59:05+0200",
         "value" : {
           "amount" : 353,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -70,7 +70,7 @@
         "bookingDate" : "2022-03-25T10:59:05+0200",
         "value" : {
           "amount" : 43,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -85,7 +85,7 @@
         "bookingDate" : "2022-09-22T10:59:05+0200",
         "value" : {
           "amount" : 75,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -100,7 +100,7 @@
         "bookingDate" : "2022-10-24T10:59:05+0200",
         "value" : {
           "amount" : 12,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -115,7 +115,7 @@
         "bookingDate" : "2022-11-11T10:59:05+0200",
         "value" : {
           "amount" : 86,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -129,7 +129,7 @@
         "bookingDate" : "2022-02-27T10:59:05+0200",
         "value" : {
           "amount" : 49,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -144,7 +144,7 @@
         "bookingDate" : "2022-03-06T10:59:05+0200",
         "value" : {
           "amount" : 95,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -159,7 +159,7 @@
         "bookingDate" : "2022-05-19T10:59:05+0200",
         "value" : {
           "amount" : 83,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -174,7 +174,7 @@
         "bookingDate" : "2022-08-11T10:59:05+0200",
         "value" : {
           "amount" : 435,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -189,7 +189,7 @@
         "bookingDate" : "2022-03-16T10:59:05+0200",
         "value" : {
           "amount" : 72,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -204,7 +204,7 @@
         "bookingDate" : "2022-04-17T10:59:05+0200",
         "value" : {
           "amount" : 33,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -219,7 +219,7 @@
         "bookingDate" : "2022-01-18T10:59:05+0200",
         "value" : {
           "amount" : 28,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -234,7 +234,7 @@
         "bookingDate" : "2022-03-23T10:59:05+0200",
         "value" : {
           "amount" : 64,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -249,7 +249,7 @@
         "bookingDate" : "2022-01-22T10:59:05+0200",
         "value" : {
           "amount" : 123,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -264,7 +264,7 @@
         "bookingDate" : "2022-10-24T10:59:05+0200",
         "value" : {
           "amount" : 456,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -279,7 +279,7 @@
         "bookingDate" : "2022-12-24T11:59:05+0200",
         "value" : {
           "amount" : 74,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -294,7 +294,7 @@
         "bookingDate" : "2022-02-04T10:59:05+0200",
         "value" : {
           "amount" : 2143,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     },
@@ -309,7 +309,7 @@
         "bookingDate" : "2022-12-01T10:59:05+0200",
         "value" : {
           "amount" : 129,
-          "currency" : "PBP"
+          "currency" : "EUR"
         }
       }
     }
