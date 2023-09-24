@@ -120,6 +120,7 @@
 		6E9100F12A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
 		6E9100F22A4F826D003D790B /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */; };
 		6EAEC2DA2A51D8F100F0A446 /* SwiftNetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 6EAEC2D92A51D8F100F0A446 /* SwiftNetworkService */; };
+		6ED6A6912AC0AE2700ABB3E0 /* TransactionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6A6902AC0AE2700ABB3E0 /* TransactionDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		6E9100E72A4F6EBD003D790B /* TransactionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListItem.swift; sourceTree = "<group>"; };
 		6E9100EB2A4F7EF0003D790B /* TransactionSumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSumView.swift; sourceTree = "<group>"; };
 		6E9100EF2A4F826D003D790B /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
+		6ED6A6902AC0AE2700ABB3E0 /* TransactionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 		6ED6A68F2AC0A70700ABB3E0 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				6ED6A6902AC0AE2700ABB3E0 /* TransactionDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -507,7 +510,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					6E76D71F2A4C8724009052AF = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -582,6 +585,7 @@
 				6E9100E82A4F6EBD003D790B /* TransactionListItem.swift in Sources */,
 				6E76D7662A4CF47F009052AF /* UnelevetedButtonStyle.swift in Sources */,
 				6E76D76A2A4CF4C1009052AF /* OutlinedButtonStyle.swift in Sources */,
+				6ED6A6912AC0AE2700ABB3E0 /* TransactionDTO.swift in Sources */,
 				6E1E2F7C2A4E22A400E0C496 /* LoginViewModel.swift in Sources */,
 				6E9100DB2A4F2021003D790B /* TransactionView.swift in Sources */,
 				6E1E2F8D2A4E54F400E0C496 /* RoundedTextField.swift in Sources */,
@@ -755,6 +759,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -815,6 +820,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
