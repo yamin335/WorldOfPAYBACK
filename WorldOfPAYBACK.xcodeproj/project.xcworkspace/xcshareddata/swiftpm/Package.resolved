@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftnetworkservice",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yamin335/SwiftNetworkService",
+      "state" : {
+        "revision" : "b913edd03a19fb41c0c4189042b64ca95ce33880",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}

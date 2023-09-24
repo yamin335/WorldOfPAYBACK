@@ -21,11 +21,11 @@ public struct RoundedTextField: View {
     }
     
     public var body: some View {
-        TextField(placeholder, text: $text, onEditingChanged: { val in
+        TextField(placeholder, text: $text) { val in
             withAnimation(.linear(duration: 0.2)) {
                 isEditing = val
             }
-        })
+        }
         // Make sure no other style is mistakenly applied.
         .textFieldStyle(PlainTextFieldStyle())
         // Text alignment.

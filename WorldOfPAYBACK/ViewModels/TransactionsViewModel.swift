@@ -87,7 +87,7 @@ class TransactionsViewModel: BaseViewModel {
     }
     
     private func getCurrencyForTotal(transactions: [Transaction]) -> String {
-        return transactions.isEmpty ? "" : transactions.first?.transactionDetail?.value?.currency?.lowercased() ?? AppConstants.defaultCurrency
+        transactions.isEmpty ? "" : transactions.first?.transactionDetail?.value?.currency?.lowercased() ?? AppConstants.defaultCurrency
     }
 
     /// This function will be used to initiate a real network call to the `Transaction API` in order to get data

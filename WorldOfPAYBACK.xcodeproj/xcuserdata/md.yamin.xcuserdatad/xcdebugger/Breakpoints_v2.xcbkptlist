@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F32F6155-6060-46CC-8E5A-979D17724A66"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B67464D-0A43-4EC6-821E-CD74C7347C12"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorldOfPAYBACK/ViewModels/TransactionsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "requestTransactionData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AD4B0FF-3C01-465C-8C26-6D2BCE191420"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorldOfPAYBACK/ViewModels/TransactionsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "requestTransactionData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AD4B0FF-3C01-465C-8C26-6D2BCE191420 - ca3a9e1b90a6582b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;SwiftNetworkService.NetworkError&gt;) -&gt; () in WorldOfPAYBACK.TransactionsViewModel.requestTransactionData() -&gt; ()"
+                  moduleName = "WorldOfPAYBACK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/md.yamin/GitHub/WorldOfPAYBACK/WorldOfPAYBACK/ViewModels/TransactionsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "515">
+               </Location>
+               <Location
+                  uuid = "8AD4B0FF-3C01-465C-8C26-6D2BCE191420 - 1868bf2e48f3b5b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (WorldOfPAYBACK.TransactionsResponse) -&gt; () in WorldOfPAYBACK.TransactionsViewModel.requestTransactionData() -&gt; ()"
+                  moduleName = "WorldOfPAYBACK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/md.yamin/GitHub/WorldOfPAYBACK/WorldOfPAYBACK/ViewModels/TransactionsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

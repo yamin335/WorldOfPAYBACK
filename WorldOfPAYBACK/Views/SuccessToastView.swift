@@ -22,8 +22,7 @@ struct SuccessToastView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
             }
-            .padding(.leading, 16)
-            .padding(.trailing, 16)
+            .padding(.horizontal, 16)
             .padding(.bottom, 8)
             .padding(.top, 8)
             .background(Color.green.blur(radius: 5))

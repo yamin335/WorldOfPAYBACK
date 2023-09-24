@@ -49,4 +49,8 @@ class NetworkObserver: ObservableObject {
     func stopObserving() {
         monitor.cancel()
     }
+    
+    deinit {
+        stopObserving()
+    }
 }
