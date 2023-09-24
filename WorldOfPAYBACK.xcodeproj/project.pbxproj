@@ -412,6 +412,7 @@
 		6ED6A68C2AC0615E00ABB3E0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6ED6A68F2AC0A70700ABB3E0 /* DTO */,
 				6ED6A68E2AC078C400ABB3E0 /* Repository */,
 				6ED6A68D2AC078B500ABB3E0 /* DataSource */,
 			);
@@ -430,6 +431,13 @@
 			children = (
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		6ED6A68F2AC0A70700ABB3E0 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
