@@ -26,7 +26,7 @@ extension AnyTransition {
 
 extension Date? {
     func toFormattedDateString() -> String? {
-        return self?.formatted(.dateTime.year().day().month(.wide))
+        return self?.formatted(.dateTime.year().day().month(.abbreviated).hour().minute())
     }
 }
 

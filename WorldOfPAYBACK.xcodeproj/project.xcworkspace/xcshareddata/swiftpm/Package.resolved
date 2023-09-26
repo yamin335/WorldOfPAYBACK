@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/yamin335/SwiftNetworkService",
       "state" : {
-        "revision" : "b913edd03a19fb41c0c4189042b64ca95ce33880",
-        "version" : "1.1.0"
+        "revision" : "20824ffce92394d4898aeb625e9d9efa142816d1",
+        "version" : "1.1.1"
       }
     }
   ],
