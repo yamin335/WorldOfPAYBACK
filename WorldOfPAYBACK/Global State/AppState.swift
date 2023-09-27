@@ -14,7 +14,7 @@ class AppState: ObservableObject {
         case qa         = "QA"
     }
     
-    #if DEVELOPMENT
+    #if DEBUG
     @Published var deploymentBuild: AppDeployment = .qa
     #else
     @Published var deploymentBuild: AppDeployment = .production
