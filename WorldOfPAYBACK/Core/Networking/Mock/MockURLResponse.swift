@@ -1,5 +1,5 @@
 //
-//  MockUrlResponse.swift
+//  MockURLResponse.swift
 //  WorldOfPAYBACK
 //
 //  Created by Md. Yamin on 27.09.23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct MockUrlResponse: Equatable {
+public struct MockURLResponse: Equatable {
     public let statusCode: Int
     public let httpVersion: String
     public let data: Data?
