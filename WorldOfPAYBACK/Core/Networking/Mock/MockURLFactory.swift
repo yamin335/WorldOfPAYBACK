@@ -1,5 +1,5 @@
 //
-//  MockUrlFactory.swift
+//  MockURLFactory.swift
 //  WorldOfPAYBACK
 //
 //  Created by Md. Yamin on 27.09.23.
@@ -7,18 +7,18 @@
 
 import Foundation
 
-public protocol MockUrlFactoryType {
-    func addMock<DTO>(for request: URLRequest, with resource: UrlResource<DTO>)
+public protocol MockURLFactoryType {
+    func addMock<DTO>(for request: URLRequest, with resource: URLResource<DTO>)
 }
 
-public struct MockUrlFactory: MockUrlFactoryType {
+public struct MockURLFactory: MockURLFactoryType {
     private let environment: AppEnvironment
     
-    public func addMock<DTO>(for request: URLRequest, with resource: UrlResource<DTO>) {
+    public func addMock<DTO>(for request: URLRequest, with resource: URLResource<DTO>) {
         guard environment == .mock,
         let resourceMock = resource.mock else { return }
         
-        let mockResponseResult: Result<MockUrlResponse, MockUrlError>
+        let mockResponseResult: Result<MockURLResponse, MockURLError>
         switch resourceMock.result {
         case .success(let resourceType):
             switch resourceType {
@@ -30,14 +30,14 @@ public struct MockUrlFactory: MockUrlFactoryType {
                 }
                 
                 mockResponseResult = .success(
-                    MockUrlResponse(statusCode: 200, httpVersion: "HTTP/1.1", data: data, errorCode: nil, headers: [:])
+                    MockURLResponse(statusCode: 200, httpVersion: "HTTP/1.1", data: data, errorCode: nil, headers: [:])
                 )
             }
         case .failure(let error):
             mockResponseResult = .failure(error)
         }
         
-        let mock = MockUrlData(urlRequest: request, responseResult: mockResponseResult)
-        MockUrlProtocol.add(mock: mock)
+        let mock = MockURLData(urlRequest: request, responseResult: mockResponseResult)
+        MockURLProtocol.add(mock: mock)
     }
 }
