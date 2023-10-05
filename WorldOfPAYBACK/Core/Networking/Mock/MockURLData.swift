@@ -1,5 +1,5 @@
 //
-//  MockUrlData.swift
+//  MockURLData.swift
 //  WorldOfPAYBACK
 //
 //  Created by Md. Yamin on 27.09.23.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-public struct MockUrlData: Equatable {
+public struct MockURLData: Equatable {
     public let urlRequest: URLRequest
-    public let responseResult: Result<MockUrlResponse, MockUrlError>
+    public let responseResult: Result<MockURLResponse, MockURLError>
 
     public var urlResponse: URLResponse {
         get throws {
             switch responseResult {
             case .success(let response):
-                guard let url = urlRequest.url else { throw MockUrlError.invalidRequestUrl }
+                guard let url = urlRequest.url else { throw MockURLError.invalidRequestUrl }
                 
                 guard let response = HTTPURLResponse(
                     url: url,
@@ -23,7 +23,7 @@ public struct MockUrlData: Equatable {
                     httpVersion: response.httpVersion,
                     headerFields: (urlRequest.allHTTPHeaderFields ?? [:]).merging(response.headers) { $1 }
                 ) else {
-                    throw MockUrlError.invalidHttpUrlResponse
+                    throw MockURLError.invalidHttpUrlResponse
                 }
                        
                 return response
