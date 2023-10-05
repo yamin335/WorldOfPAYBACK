@@ -1,5 +1,5 @@
 //
-//  HttpMethod.swift
+//  HTTPMethod.swift
 //  WorldOfPAYBACK
 //
 //  Created by Md. Yamin on 27.09.23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum HttpMethod: Equatable {
+public enum HTTPMethod: Equatable {
     case get
     case post(Data?)
     
