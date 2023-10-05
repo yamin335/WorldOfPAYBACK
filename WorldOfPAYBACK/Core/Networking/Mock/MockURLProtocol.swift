@@ -1,5 +1,5 @@
 //
-//  MockUrlProtocol.swift
+//  MockURLProtocol.swift
 //  WorldOfPAYBACK
 //
 //  Created by Md. Yamin on 27.09.23.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-public final class MockUrlProtocol: URLProtocol {
-    static var mocks: [URLRequest: MockUrlData] = [:]
+public final class MockURLProtocol: URLProtocol {
+    static var mocks: [URLRequest: MockURLData] = [:]
     static var shouldCheckQueryParameters = false
 
     override public class func canInit(with request: URLRequest) -> Bool {
@@ -19,7 +19,7 @@ public final class MockUrlProtocol: URLProtocol {
         request
     }
 
-    public class func add(mock: MockUrlData) {
+    public class func add(mock: MockURLData) {
         mocks[mock.urlRequest] = mock
     }
 
@@ -29,7 +29,7 @@ public final class MockUrlProtocol: URLProtocol {
         }
         
         guard let mock = Self.mocks[request] else {
-            client?.urlProtocol(self, didFailWithError: MockUrlError.requestNotFound)
+            client?.urlProtocol(self, didFailWithError: MockURLError.requestNotFound)
             return
         }
         
