@@ -1,5 +1,5 @@
 //
-//  UrlResource.swift
+//  URLResource.swift
 //  WorldOfPAYBACK
 //
 //  Created by Md. Yamin on 27.09.23.
@@ -7,20 +7,20 @@
 
 import Foundation
 
-public struct UrlResource<T> {
+public struct URLResource<T> {
     let path: String
-    let method: HttpMethod
-    let headers: HttpHeaders?
-    let mock: MockUrlResource?
+    let method: HTTPMethod
+    let headers: HTTPHeaders?
+    let mock: MockURLResource?
     let decode: (Data?) throws -> T
     
     static func get<DTO: Decodable>(
         path: String,
-        headers: HttpHeaders? = nil,
-        mock: MockUrlResource? = nil,
+        headers: HTTPHeaders? = nil,
+        mock: MockURLResource? = nil,
         decoder: JSONDecoder
-    ) -> UrlResource<DTO> {
-        return UrlResource<DTO>(
+    ) -> URLResource<DTO> {
+        return URLResource<DTO>(
             path: path,
             method: .get,
             headers: headers,
@@ -43,16 +43,16 @@ public struct UrlResource<T> {
     static func post<RequestEntity: Encodable, ResponseEntity: Decodable>(
         path: String,
         entity: RequestEntity,
-        headers: HttpHeaders? = nil,
-        mock: MockUrlResource? = nil,
+        headers: HTTPHeaders? = nil,
+        mock: MockURLResource? = nil,
         encoder: JSONEncoder,
         decoder: JSONDecoder
-    ) -> UrlResource<ResponseEntity>? {
+    ) -> URLResource<ResponseEntity>? {
         guard let data = try? encoder.encode(entity) else {
             return nil
         }
         
-        return UrlResource<ResponseEntity>(
+        return URLResource<ResponseEntity>(
             path: path,
             method: .post(data),
             headers: headers,
