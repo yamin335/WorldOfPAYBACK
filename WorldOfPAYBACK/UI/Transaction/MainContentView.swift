@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainContentView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState: AppStateType
     private let session = SessionManager.shared
     @StateObject var networkObserver = NetworkObserver()
     

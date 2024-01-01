@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct WorldOfPAYBACKApp: App {
+    init() {
+        SystemUIDesign.apply()
+    }
     var body: some Scene {
         WindowGroup {
             MainContentView().environmentObject(AppState())
