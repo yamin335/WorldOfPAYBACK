@@ -8,5 +8,15 @@
 import Foundation
 
 protocol TransactionRemoteDataSourceType {
-    func getTransaction(randomGenerator: BooleanRandomGeneratorType) async throws -> [TransactionDTO]
+    func getTransaction(shouldForceErrorState: Bool) async throws -> TransactionListDTO
+}
+
+struct TransactionRemoteDataSource: TransactionRemoteDataSourceType {
+    private let httpClient: HttpClientType
+    private let apiFactory: TransactionApiFactoryType
+    
+    func getTransaction(shouldForceErrorState: Bool) async throws -> TransactionListDTO {
+        let request = shouldForceErrorState ? apiFactory.createErrorResponse() : apiFactory.createSuccessResponse()
+        return try await httpClient.fetch(resource: request)
+    }
 }
