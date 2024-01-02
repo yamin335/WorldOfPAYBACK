@@ -7,11 +7,16 @@
 
 import Foundation
 
-class SessionManager {
-    static let shared = SessionManager()
+protocol SessionManagerType {
+    var isLoggedIn: Bool { get set }
+    var sumOfAllTransaction: Int { get set }
+    var loggedUser: UserAccount? { get set }
+    var registeredUsers: RegisteredUsers? { get set }
+    func logout()
+}
+
+class SessionManager: SessionManagerType {
     private let userDefault = UserDefaults.standard
-    
-    private init() {}
     
     var isLoggedIn: Bool {
         set {
@@ -33,25 +38,7 @@ class SessionManager {
         }
     }
     
-    var loginToken: LoginToken? {
-        set {
-            if let newValue = newValue, let encodedData = try? JSONEncoder().encode(newValue) {
-                userDefault.set(encodedData, forKey: AppConstants.keyLoginToken)
-            }
-        }
-        
-        get {
-            var loginToken: LoginToken? = nil
-            if let data = userDefault.object(forKey: AppConstants.keyLoginToken) as? Data {
-                if let decodedData = try? JSONDecoder().decode(LoginToken.self, from: data) {
-                    loginToken = decodedData
-                }
-            }
-            return loginToken
-        }
-    }
-    
-    var userAccount: UserAccount? {
+    var loggedUser: UserAccount? {
         set {
             if let newValue = newValue, let encodedData = try? JSONEncoder().encode(newValue) {
                 userDefault.set(encodedData, forKey: AppConstants.keyUserAccount)
