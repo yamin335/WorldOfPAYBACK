@@ -10,3 +10,14 @@ import Foundation
 protocol TransactionUseCaseType {
     func getTransaction(shouldForceErrorState: Bool) async throws -> [TransactionEntity]
 }
+
+struct TransactionUseCase: TransactionUseCaseType {
+    private let transactionRepository: TransactionRepositoryType
+    private let transactionTransformer: TransactionTransformer
+    
+    func getTransaction(shouldForceErrorState: Bool) async throws -> [TransactionEntity] {
+        try await transactionRepository.getTransaction(
+            shouldForceErrorState: shouldForceErrorState
+        ).map(transactionTransformer.transform(dto:))
+    }
+}
