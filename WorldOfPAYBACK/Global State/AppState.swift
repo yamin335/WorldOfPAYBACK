@@ -12,9 +12,19 @@ protocol AppStateType: ObservableObject {
     var isLoggedIn: Bool { get set }
     var isSplashShown: Bool { get set }
 }
-
-class AppState: AppStateType {
+  
+class AppState: ObservableObject {
     private let keyLoggedStatus = "key_login"
+    enum AppDeployment: String {
+        case production = "Production"
+        case qa         = "QA"
+    }
+    
+    #if DEBUG
+    @Published var deploymentBuild: AppDeployment = .qa
+    #else
+    @Published var deploymentBuild: AppDeployment = .production
+    #endif
     
     @Published var isLoggedIn: Bool {
         didSet {
